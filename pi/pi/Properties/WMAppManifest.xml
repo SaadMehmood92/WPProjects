@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Deployment xmlns="http://schemas.microsoft.com/windowsphone/2009/deployment" AppPlatformVersion="7.1">
+  <App xmlns="" ProductID="{427a29c9-b199-4971-bc0c-7f35dc846f99}" Title="Pi (π)" RuntimeType="Silverlight" Version="1.0.0.0" Genre="apps.normal" Author="Saad Mahmood" Description="A beautiful application to calculate phone's efficency" Publisher="GnizamaSoft">
+    <IconPath IsRelative="true" IsResource="false">logo.png</IconPath>
+    <Capabilities>
+      <Capability Name="ID_CAP_IDENTITY_DEVICE" />
+      <Capability Name="ID_CAP_IDENTITY_USER" />
+      <Capability Name="ID_CAP_NETWORKING" />
+    </Capabilities>
+    <Tasks>
+      <DefaultTask Name="_default" NavigationPage="MainPage.xaml" />
+    </Tasks>
+    <Tokens>
+      <PrimaryToken TokenID="piToken" TaskName="_default">
+        <TemplateType5>
+          <BackgroundImageURI IsRelative="true" IsResource="false">hello.png</BackgroundImageURI>
+          <Count>0</Count>
+          <Title>Pi (π)</Title>
+        </TemplateType5>
+      </PrimaryToken>
+    </Tokens>
+  </App>
+</Deployment>

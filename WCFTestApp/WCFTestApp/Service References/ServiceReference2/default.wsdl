@@ -1,0 +1,3768 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/Weatherservice/Service1" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/Weatherservice/Service1" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This is a free web service provided by the City of Tempe.</wsdl:documentation>
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/Weatherservice/Service1">
+      <s:element name="getweather_dataset">
+        <s:complexType />
+      </s:element>
+      <s:element name="getweather_datasetResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getweather_datasetResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="weatherset">
+        <s:complexType />
+      </s:element>
+      <s:element name="weathersetResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="weathersetResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="OutsideTemperature">
+        <s:complexType />
+      </s:element>
+      <s:element name="OutsideTemperatureResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="OutsideTemperatureResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TimeonthePC">
+        <s:complexType />
+      </s:element>
+      <s:element name="TimeonthePCResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TimeonthePCResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DateontheStation">
+        <s:complexType />
+      </s:element>
+      <s:element name="DateontheStationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DateontheStationResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TimeontheStation">
+        <s:complexType />
+      </s:element>
+      <s:element name="TimeontheStationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TimeontheStationResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UTCTime">
+        <s:complexType />
+      </s:element>
+      <s:element name="UTCTimeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UTCTimeResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UTCDate">
+        <s:complexType />
+      </s:element>
+      <s:element name="UTCDateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UTCDateResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Sunrisetime">
+        <s:complexType />
+      </s:element>
+      <s:element name="SunrisetimeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SunrisetimeResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Sunsettime">
+        <s:complexType />
+      </s:element>
+      <s:element name="SunsettimeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SunsettimeResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="HighoutsideTemperature">
+        <s:complexType />
+      </s:element>
+      <s:element name="HighoutsideTemperatureResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HighoutsideTemperatureResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LowoutsideTemperature">
+        <s:complexType />
+      </s:element>
+      <s:element name="LowoutsideTemperatureResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LowoutsideTemperatureResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TimeofHighoutsideTemperature">
+        <s:complexType />
+      </s:element>
+      <s:element name="TimeofHighoutsideTemperatureResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TimeofHighoutsideTemperatureResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TimeofLowoutsideTemperature">
+        <s:complexType />
+      </s:element>
+      <s:element name="TimeofLowoutsideTemperatureResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TimeofLowoutsideTemperatureResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="HighmonthlyoutsideTemperature">
+        <s:complexType />
+      </s:element>
+      <s:element name="HighmonthlyoutsideTemperatureResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HighmonthlyoutsideTemperatureResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LowmonthlyoutsideTemperature">
+        <s:complexType />
+      </s:element>
+      <s:element name="LowmonthlyoutsideTemperatureResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LowmonthlyoutsideTemperatureResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="HighyearlyoutsideTemperature">
+        <s:complexType />
+      </s:element>
+      <s:element name="HighyearlyoutsideTemperatureResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HighyearlyoutsideTemperatureResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LowyearlyoutsideTemperature">
+        <s:complexType />
+      </s:element>
+      <s:element name="LowyearlyoutsideTemperatureResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LowyearlyoutsideTemperatureResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Outsidehumidity">
+        <s:complexType />
+      </s:element>
+      <s:element name="OutsidehumidityResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="OutsidehumidityResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Lowhumidity">
+        <s:complexType />
+      </s:element>
+      <s:element name="LowhumidityResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LowhumidityResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Highhumidity">
+        <s:complexType />
+      </s:element>
+      <s:element name="HighhumidityResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HighhumidityResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TimeofLowhum">
+        <s:complexType />
+      </s:element>
+      <s:element name="TimeofLowhumResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TimeofLowhumResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TimeofHighhum">
+        <s:complexType />
+      </s:element>
+      <s:element name="TimeofHighhumResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TimeofHighhumResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Highmonthlyhumidity">
+        <s:complexType />
+      </s:element>
+      <s:element name="HighmonthlyhumidityResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HighmonthlyhumidityResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Lowmonthlyhumidity">
+        <s:complexType />
+      </s:element>
+      <s:element name="LowmonthlyhumidityResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LowmonthlyhumidityResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Highyearlyhumidity">
+        <s:complexType />
+      </s:element>
+      <s:element name="HighyearlyhumidityResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HighyearlyhumidityResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Lowyearlyhumidity">
+        <s:complexType />
+      </s:element>
+      <s:element name="LowyearlyhumidityResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LowyearlyhumidityResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Outsidedewpoint">
+        <s:complexType />
+      </s:element>
+      <s:element name="OutsidedewpointResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="OutsidedewpointResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Highdewpoint">
+        <s:complexType />
+      </s:element>
+      <s:element name="HighdewpointResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HighdewpointResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Lowdewpoint">
+        <s:complexType />
+      </s:element>
+      <s:element name="LowdewpointResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LowdewpointResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TimeofHighdewpoint">
+        <s:complexType />
+      </s:element>
+      <s:element name="TimeofHighdewpointResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TimeofHighdewpointResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TimeofLowdewpoint">
+        <s:complexType />
+      </s:element>
+      <s:element name="TimeofLowdewpointResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TimeofLowdewpointResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Highmonthlydewpoint">
+        <s:complexType />
+      </s:element>
+      <s:element name="HighmonthlydewpointResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HighmonthlydewpointResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Lowmonthlydewpoint">
+        <s:complexType />
+      </s:element>
+      <s:element name="LowmonthlydewpointResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LowmonthlydewpointResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Highyearlydewpoint">
+        <s:complexType />
+      </s:element>
+      <s:element name="HighyearlydewpointResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HighyearlydewpointResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Lowyearlydewpoint">
+        <s:complexType />
+      </s:element>
+      <s:element name="LowyearlydewpointResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LowyearlydewpointResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Windspeed">
+        <s:complexType />
+      </s:element>
+      <s:element name="WindspeedResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="WindspeedResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="tenminuteaveragewindspeed">
+        <s:complexType />
+      </s:element>
+      <s:element name="tenminuteaveragewindspeedResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="tenminuteaveragewindspeedResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Highwindspeed">
+        <s:complexType />
+      </s:element>
+      <s:element name="HighwindspeedResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HighwindspeedResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TimeofHighwindspeed">
+        <s:complexType />
+      </s:element>
+      <s:element name="TimeofHighwindspeedResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TimeofHighwindspeedResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Highmonthlywindspeed">
+        <s:complexType />
+      </s:element>
+      <s:element name="HighmonthlywindspeedResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HighmonthlywindspeedResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Highyearlywindspeed">
+        <s:complexType />
+      </s:element>
+      <s:element name="HighyearlywindspeedResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HighyearlywindspeedResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Winddirectionindegrees">
+        <s:complexType />
+      </s:element>
+      <s:element name="WinddirectionindegreesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="WinddirectionindegreesResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Winddirectionsector">
+        <s:complexType />
+      </s:element>
+      <s:element name="WinddirectionsectorResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="WinddirectionsectorResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Windchill">
+        <s:complexType />
+      </s:element>
+      <s:element name="WindchillResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="WindchillResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Lowwindchill">
+        <s:complexType />
+      </s:element>
+      <s:element name="LowwindchillResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LowwindchillResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TimeofLowwindchill">
+        <s:complexType />
+      </s:element>
+      <s:element name="TimeofLowwindchillResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TimeofLowwindchillResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Lowmonthlywindchill">
+        <s:complexType />
+      </s:element>
+      <s:element name="LowmonthlywindchillResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LowmonthlywindchillResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Lowyearlywindchill">
+        <s:complexType />
+      </s:element>
+      <s:element name="LowyearlywindchillResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LowyearlywindchillResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Outsideheatindex">
+        <s:complexType />
+      </s:element>
+      <s:element name="OutsideheatindexResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="OutsideheatindexResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Highheatindex">
+        <s:complexType />
+      </s:element>
+      <s:element name="HighheatindexResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HighheatindexResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TimeofHighheatindex">
+        <s:complexType />
+      </s:element>
+      <s:element name="TimeofHighheatindexResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TimeofHighheatindexResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Highmonthlyheatindex">
+        <s:complexType />
+      </s:element>
+      <s:element name="HighmonthlyheatindexResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HighmonthlyheatindexResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Highyearlyheatindex">
+        <s:complexType />
+      </s:element>
+      <s:element name="HighyearlyheatindexResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HighyearlyheatindexResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Barometer">
+        <s:complexType />
+      </s:element>
+      <s:element name="BarometerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BarometerResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BarometerTrend">
+        <s:complexType />
+      </s:element>
+      <s:element name="BarometerTrendResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BarometerTrendResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Lowbarometer">
+        <s:complexType />
+      </s:element>
+      <s:element name="LowbarometerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LowbarometerResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Highbarometer">
+        <s:complexType />
+      </s:element>
+      <s:element name="HighbarometerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HighbarometerResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Lowmonthlybarometer">
+        <s:complexType />
+      </s:element>
+      <s:element name="LowmonthlybarometerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LowmonthlybarometerResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Highmonthlybarometer">
+        <s:complexType />
+      </s:element>
+      <s:element name="HighmonthlybarometerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HighmonthlybarometerResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Lowyearlybarometer">
+        <s:complexType />
+      </s:element>
+      <s:element name="LowyearlybarometerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LowyearlybarometerResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Highyearlybarometer">
+        <s:complexType />
+      </s:element>
+      <s:element name="HighyearlybarometerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HighyearlybarometerResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Timeoflowbarometertime">
+        <s:complexType />
+      </s:element>
+      <s:element name="TimeoflowbarometertimeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TimeoflowbarometertimeResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TimeofHighbarometertime">
+        <s:complexType />
+      </s:element>
+      <s:element name="TimeofHighbarometertimeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TimeofHighbarometertimeResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Dailyrain">
+        <s:complexType />
+      </s:element>
+      <s:element name="DailyrainResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DailyrainResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Stormrain">
+        <s:complexType />
+      </s:element>
+      <s:element name="StormrainResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="StormrainResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Highrainrate">
+        <s:complexType />
+      </s:element>
+      <s:element name="HighrainrateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HighrainrateResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Monthlyrain">
+        <s:complexType />
+      </s:element>
+      <s:element name="MonthlyrainResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MonthlyrainResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Yearlyrain">
+        <s:complexType />
+      </s:element>
+      <s:element name="YearlyrainResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="YearlyrainResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CurrentRainrate">
+        <s:complexType />
+      </s:element>
+      <s:element name="CurrentRainrateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CurrentRainrateResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TimeofHighrainrate">
+        <s:complexType />
+      </s:element>
+      <s:element name="TimeofHighrainrateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TimeofHighrainrateResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="HighHourlyRainRate">
+        <s:complexType />
+      </s:element>
+      <s:element name="HighHourlyRainRateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HighHourlyRainRateResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Highmonthlyrainrate">
+        <s:complexType />
+      </s:element>
+      <s:element name="HighmonthlyrainrateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HighmonthlyrainrateResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Highyearlyrainrate">
+        <s:complexType />
+      </s:element>
+      <s:element name="HighyearlyrainrateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HighyearlyrainrateResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Insidetemperature">
+        <s:complexType />
+      </s:element>
+      <s:element name="InsidetemperatureResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InsidetemperatureResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="HighinsideTemperature">
+        <s:complexType />
+      </s:element>
+      <s:element name="HighinsideTemperatureResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HighinsideTemperatureResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LowinsideTemperature">
+        <s:complexType />
+      </s:element>
+      <s:element name="LowinsideTemperatureResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LowinsideTemperatureResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TimeofHighinsideTemperature">
+        <s:complexType />
+      </s:element>
+      <s:element name="TimeofHighinsideTemperatureResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TimeofHighinsideTemperatureResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TimeofLowinsideTemperature">
+        <s:complexType />
+      </s:element>
+      <s:element name="TimeofLowinsideTemperatureResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TimeofLowinsideTemperatureResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="HighmonthlyinsideTemperature">
+        <s:complexType />
+      </s:element>
+      <s:element name="HighmonthlyinsideTemperatureResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HighmonthlyinsideTemperatureResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LowmonthlyinsideTemperature">
+        <s:complexType />
+      </s:element>
+      <s:element name="LowmonthlyinsideTemperatureResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LowmonthlyinsideTemperatureResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="HighyearlyinsideTemperature">
+        <s:complexType />
+      </s:element>
+      <s:element name="HighyearlyinsideTemperatureResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HighyearlyinsideTemperatureResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LowyearlyinsideTemperature">
+        <s:complexType />
+      </s:element>
+      <s:element name="LowyearlyinsideTemperatureResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LowyearlyinsideTemperatureResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Insidehumidity">
+        <s:complexType />
+      </s:element>
+      <s:element name="InsidehumidityResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InsidehumidityResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Highinsidehumidity">
+        <s:complexType />
+      </s:element>
+      <s:element name="HighinsidehumidityResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HighinsidehumidityResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Lowinsidehumidity">
+        <s:complexType />
+      </s:element>
+      <s:element name="LowinsidehumidityResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LowinsidehumidityResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Highinsidehumiditytime">
+        <s:complexType />
+      </s:element>
+      <s:element name="HighinsidehumiditytimeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HighinsidehumiditytimeResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Lowinsidehumiditytime">
+        <s:complexType />
+      </s:element>
+      <s:element name="LowinsidehumiditytimeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LowinsidehumiditytimeResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Highmonthlyinsidehumidity">
+        <s:complexType />
+      </s:element>
+      <s:element name="HighmonthlyinsidehumidityResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HighmonthlyinsidehumidityResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Lowmonthlyinsidehumidity">
+        <s:complexType />
+      </s:element>
+      <s:element name="LowmonthlyinsidehumidityResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LowmonthlyinsidehumidityResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Highyearlyinsidehumidity">
+        <s:complexType />
+      </s:element>
+      <s:element name="HighyearlyinsidehumidityResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HighyearlyinsidehumidityResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Lowyearlyinsidehumidity">
+        <s:complexType />
+      </s:element>
+      <s:element name="LowyearlyinsidehumidityResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LowyearlyinsidehumidityResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Insidedewpoint">
+        <s:complexType />
+      </s:element>
+      <s:element name="InsidedewpointResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InsidedewpointResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Insideheatindex">
+        <s:complexType />
+      </s:element>
+      <s:element name="InsideheatindexResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InsideheatindexResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EMC">
+        <s:complexType />
+      </s:element>
+      <s:element name="EMCResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="EMCResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AirDensity">
+        <s:complexType />
+      </s:element>
+      <s:element name="AirDensityResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AirDensityResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DateonthePC">
+        <s:complexType />
+      </s:element>
+      <s:element name="DateonthePCResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DateonthePCResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Laketemp">
+        <s:complexType />
+      </s:element>
+      <s:element name="LaketempResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LaketempResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="getweather_datasetSoapIn">
+    <wsdl:part name="parameters" element="tns:getweather_dataset" />
+  </wsdl:message>
+  <wsdl:message name="getweather_datasetSoapOut">
+    <wsdl:part name="parameters" element="tns:getweather_datasetResponse" />
+  </wsdl:message>
+  <wsdl:message name="weathersetSoapIn">
+    <wsdl:part name="parameters" element="tns:weatherset" />
+  </wsdl:message>
+  <wsdl:message name="weathersetSoapOut">
+    <wsdl:part name="parameters" element="tns:weathersetResponse" />
+  </wsdl:message>
+  <wsdl:message name="OutsideTemperatureSoapIn">
+    <wsdl:part name="parameters" element="tns:OutsideTemperature" />
+  </wsdl:message>
+  <wsdl:message name="OutsideTemperatureSoapOut">
+    <wsdl:part name="parameters" element="tns:OutsideTemperatureResponse" />
+  </wsdl:message>
+  <wsdl:message name="TimeonthePCSoapIn">
+    <wsdl:part name="parameters" element="tns:TimeonthePC" />
+  </wsdl:message>
+  <wsdl:message name="TimeonthePCSoapOut">
+    <wsdl:part name="parameters" element="tns:TimeonthePCResponse" />
+  </wsdl:message>
+  <wsdl:message name="DateontheStationSoapIn">
+    <wsdl:part name="parameters" element="tns:DateontheStation" />
+  </wsdl:message>
+  <wsdl:message name="DateontheStationSoapOut">
+    <wsdl:part name="parameters" element="tns:DateontheStationResponse" />
+  </wsdl:message>
+  <wsdl:message name="TimeontheStationSoapIn">
+    <wsdl:part name="parameters" element="tns:TimeontheStation" />
+  </wsdl:message>
+  <wsdl:message name="TimeontheStationSoapOut">
+    <wsdl:part name="parameters" element="tns:TimeontheStationResponse" />
+  </wsdl:message>
+  <wsdl:message name="UTCTimeSoapIn">
+    <wsdl:part name="parameters" element="tns:UTCTime" />
+  </wsdl:message>
+  <wsdl:message name="UTCTimeSoapOut">
+    <wsdl:part name="parameters" element="tns:UTCTimeResponse" />
+  </wsdl:message>
+  <wsdl:message name="UTCDateSoapIn">
+    <wsdl:part name="parameters" element="tns:UTCDate" />
+  </wsdl:message>
+  <wsdl:message name="UTCDateSoapOut">
+    <wsdl:part name="parameters" element="tns:UTCDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="SunrisetimeSoapIn">
+    <wsdl:part name="parameters" element="tns:Sunrisetime" />
+  </wsdl:message>
+  <wsdl:message name="SunrisetimeSoapOut">
+    <wsdl:part name="parameters" element="tns:SunrisetimeResponse" />
+  </wsdl:message>
+  <wsdl:message name="SunsettimeSoapIn">
+    <wsdl:part name="parameters" element="tns:Sunsettime" />
+  </wsdl:message>
+  <wsdl:message name="SunsettimeSoapOut">
+    <wsdl:part name="parameters" element="tns:SunsettimeResponse" />
+  </wsdl:message>
+  <wsdl:message name="HighoutsideTemperatureSoapIn">
+    <wsdl:part name="parameters" element="tns:HighoutsideTemperature" />
+  </wsdl:message>
+  <wsdl:message name="HighoutsideTemperatureSoapOut">
+    <wsdl:part name="parameters" element="tns:HighoutsideTemperatureResponse" />
+  </wsdl:message>
+  <wsdl:message name="LowoutsideTemperatureSoapIn">
+    <wsdl:part name="parameters" element="tns:LowoutsideTemperature" />
+  </wsdl:message>
+  <wsdl:message name="LowoutsideTemperatureSoapOut">
+    <wsdl:part name="parameters" element="tns:LowoutsideTemperatureResponse" />
+  </wsdl:message>
+  <wsdl:message name="TimeofHighoutsideTemperatureSoapIn">
+    <wsdl:part name="parameters" element="tns:TimeofHighoutsideTemperature" />
+  </wsdl:message>
+  <wsdl:message name="TimeofHighoutsideTemperatureSoapOut">
+    <wsdl:part name="parameters" element="tns:TimeofHighoutsideTemperatureResponse" />
+  </wsdl:message>
+  <wsdl:message name="TimeofLowoutsideTemperatureSoapIn">
+    <wsdl:part name="parameters" element="tns:TimeofLowoutsideTemperature" />
+  </wsdl:message>
+  <wsdl:message name="TimeofLowoutsideTemperatureSoapOut">
+    <wsdl:part name="parameters" element="tns:TimeofLowoutsideTemperatureResponse" />
+  </wsdl:message>
+  <wsdl:message name="HighmonthlyoutsideTemperatureSoapIn">
+    <wsdl:part name="parameters" element="tns:HighmonthlyoutsideTemperature" />
+  </wsdl:message>
+  <wsdl:message name="HighmonthlyoutsideTemperatureSoapOut">
+    <wsdl:part name="parameters" element="tns:HighmonthlyoutsideTemperatureResponse" />
+  </wsdl:message>
+  <wsdl:message name="LowmonthlyoutsideTemperatureSoapIn">
+    <wsdl:part name="parameters" element="tns:LowmonthlyoutsideTemperature" />
+  </wsdl:message>
+  <wsdl:message name="LowmonthlyoutsideTemperatureSoapOut">
+    <wsdl:part name="parameters" element="tns:LowmonthlyoutsideTemperatureResponse" />
+  </wsdl:message>
+  <wsdl:message name="HighyearlyoutsideTemperatureSoapIn">
+    <wsdl:part name="parameters" element="tns:HighyearlyoutsideTemperature" />
+  </wsdl:message>
+  <wsdl:message name="HighyearlyoutsideTemperatureSoapOut">
+    <wsdl:part name="parameters" element="tns:HighyearlyoutsideTemperatureResponse" />
+  </wsdl:message>
+  <wsdl:message name="LowyearlyoutsideTemperatureSoapIn">
+    <wsdl:part name="parameters" element="tns:LowyearlyoutsideTemperature" />
+  </wsdl:message>
+  <wsdl:message name="LowyearlyoutsideTemperatureSoapOut">
+    <wsdl:part name="parameters" element="tns:LowyearlyoutsideTemperatureResponse" />
+  </wsdl:message>
+  <wsdl:message name="OutsidehumiditySoapIn">
+    <wsdl:part name="parameters" element="tns:Outsidehumidity" />
+  </wsdl:message>
+  <wsdl:message name="OutsidehumiditySoapOut">
+    <wsdl:part name="parameters" element="tns:OutsidehumidityResponse" />
+  </wsdl:message>
+  <wsdl:message name="LowhumiditySoapIn">
+    <wsdl:part name="parameters" element="tns:Lowhumidity" />
+  </wsdl:message>
+  <wsdl:message name="LowhumiditySoapOut">
+    <wsdl:part name="parameters" element="tns:LowhumidityResponse" />
+  </wsdl:message>
+  <wsdl:message name="HighhumiditySoapIn">
+    <wsdl:part name="parameters" element="tns:Highhumidity" />
+  </wsdl:message>
+  <wsdl:message name="HighhumiditySoapOut">
+    <wsdl:part name="parameters" element="tns:HighhumidityResponse" />
+  </wsdl:message>
+  <wsdl:message name="TimeofLowhumSoapIn">
+    <wsdl:part name="parameters" element="tns:TimeofLowhum" />
+  </wsdl:message>
+  <wsdl:message name="TimeofLowhumSoapOut">
+    <wsdl:part name="parameters" element="tns:TimeofLowhumResponse" />
+  </wsdl:message>
+  <wsdl:message name="TimeofHighhumSoapIn">
+    <wsdl:part name="parameters" element="tns:TimeofHighhum" />
+  </wsdl:message>
+  <wsdl:message name="TimeofHighhumSoapOut">
+    <wsdl:part name="parameters" element="tns:TimeofHighhumResponse" />
+  </wsdl:message>
+  <wsdl:message name="HighmonthlyhumiditySoapIn">
+    <wsdl:part name="parameters" element="tns:Highmonthlyhumidity" />
+  </wsdl:message>
+  <wsdl:message name="HighmonthlyhumiditySoapOut">
+    <wsdl:part name="parameters" element="tns:HighmonthlyhumidityResponse" />
+  </wsdl:message>
+  <wsdl:message name="LowmonthlyhumiditySoapIn">
+    <wsdl:part name="parameters" element="tns:Lowmonthlyhumidity" />
+  </wsdl:message>
+  <wsdl:message name="LowmonthlyhumiditySoapOut">
+    <wsdl:part name="parameters" element="tns:LowmonthlyhumidityResponse" />
+  </wsdl:message>
+  <wsdl:message name="HighyearlyhumiditySoapIn">
+    <wsdl:part name="parameters" element="tns:Highyearlyhumidity" />
+  </wsdl:message>
+  <wsdl:message name="HighyearlyhumiditySoapOut">
+    <wsdl:part name="parameters" element="tns:HighyearlyhumidityResponse" />
+  </wsdl:message>
+  <wsdl:message name="LowyearlyhumiditySoapIn">
+    <wsdl:part name="parameters" element="tns:Lowyearlyhumidity" />
+  </wsdl:message>
+  <wsdl:message name="LowyearlyhumiditySoapOut">
+    <wsdl:part name="parameters" element="tns:LowyearlyhumidityResponse" />
+  </wsdl:message>
+  <wsdl:message name="OutsidedewpointSoapIn">
+    <wsdl:part name="parameters" element="tns:Outsidedewpoint" />
+  </wsdl:message>
+  <wsdl:message name="OutsidedewpointSoapOut">
+    <wsdl:part name="parameters" element="tns:OutsidedewpointResponse" />
+  </wsdl:message>
+  <wsdl:message name="HighdewpointSoapIn">
+    <wsdl:part name="parameters" element="tns:Highdewpoint" />
+  </wsdl:message>
+  <wsdl:message name="HighdewpointSoapOut">
+    <wsdl:part name="parameters" element="tns:HighdewpointResponse" />
+  </wsdl:message>
+  <wsdl:message name="LowdewpointSoapIn">
+    <wsdl:part name="parameters" element="tns:Lowdewpoint" />
+  </wsdl:message>
+  <wsdl:message name="LowdewpointSoapOut">
+    <wsdl:part name="parameters" element="tns:LowdewpointResponse" />
+  </wsdl:message>
+  <wsdl:message name="TimeofHighdewpointSoapIn">
+    <wsdl:part name="parameters" element="tns:TimeofHighdewpoint" />
+  </wsdl:message>
+  <wsdl:message name="TimeofHighdewpointSoapOut">
+    <wsdl:part name="parameters" element="tns:TimeofHighdewpointResponse" />
+  </wsdl:message>
+  <wsdl:message name="TimeofLowdewpointSoapIn">
+    <wsdl:part name="parameters" element="tns:TimeofLowdewpoint" />
+  </wsdl:message>
+  <wsdl:message name="TimeofLowdewpointSoapOut">
+    <wsdl:part name="parameters" element="tns:TimeofLowdewpointResponse" />
+  </wsdl:message>
+  <wsdl:message name="HighmonthlydewpointSoapIn">
+    <wsdl:part name="parameters" element="tns:Highmonthlydewpoint" />
+  </wsdl:message>
+  <wsdl:message name="HighmonthlydewpointSoapOut">
+    <wsdl:part name="parameters" element="tns:HighmonthlydewpointResponse" />
+  </wsdl:message>
+  <wsdl:message name="LowmonthlydewpointSoapIn">
+    <wsdl:part name="parameters" element="tns:Lowmonthlydewpoint" />
+  </wsdl:message>
+  <wsdl:message name="LowmonthlydewpointSoapOut">
+    <wsdl:part name="parameters" element="tns:LowmonthlydewpointResponse" />
+  </wsdl:message>
+  <wsdl:message name="HighyearlydewpointSoapIn">
+    <wsdl:part name="parameters" element="tns:Highyearlydewpoint" />
+  </wsdl:message>
+  <wsdl:message name="HighyearlydewpointSoapOut">
+    <wsdl:part name="parameters" element="tns:HighyearlydewpointResponse" />
+  </wsdl:message>
+  <wsdl:message name="LowyearlydewpointSoapIn">
+    <wsdl:part name="parameters" element="tns:Lowyearlydewpoint" />
+  </wsdl:message>
+  <wsdl:message name="LowyearlydewpointSoapOut">
+    <wsdl:part name="parameters" element="tns:LowyearlydewpointResponse" />
+  </wsdl:message>
+  <wsdl:message name="WindspeedSoapIn">
+    <wsdl:part name="parameters" element="tns:Windspeed" />
+  </wsdl:message>
+  <wsdl:message name="WindspeedSoapOut">
+    <wsdl:part name="parameters" element="tns:WindspeedResponse" />
+  </wsdl:message>
+  <wsdl:message name="tenminuteaveragewindspeedSoapIn">
+    <wsdl:part name="parameters" element="tns:tenminuteaveragewindspeed" />
+  </wsdl:message>
+  <wsdl:message name="tenminuteaveragewindspeedSoapOut">
+    <wsdl:part name="parameters" element="tns:tenminuteaveragewindspeedResponse" />
+  </wsdl:message>
+  <wsdl:message name="HighwindspeedSoapIn">
+    <wsdl:part name="parameters" element="tns:Highwindspeed" />
+  </wsdl:message>
+  <wsdl:message name="HighwindspeedSoapOut">
+    <wsdl:part name="parameters" element="tns:HighwindspeedResponse" />
+  </wsdl:message>
+  <wsdl:message name="TimeofHighwindspeedSoapIn">
+    <wsdl:part name="parameters" element="tns:TimeofHighwindspeed" />
+  </wsdl:message>
+  <wsdl:message name="TimeofHighwindspeedSoapOut">
+    <wsdl:part name="parameters" element="tns:TimeofHighwindspeedResponse" />
+  </wsdl:message>
+  <wsdl:message name="HighmonthlywindspeedSoapIn">
+    <wsdl:part name="parameters" element="tns:Highmonthlywindspeed" />
+  </wsdl:message>
+  <wsdl:message name="HighmonthlywindspeedSoapOut">
+    <wsdl:part name="parameters" element="tns:HighmonthlywindspeedResponse" />
+  </wsdl:message>
+  <wsdl:message name="HighyearlywindspeedSoapIn">
+    <wsdl:part name="parameters" element="tns:Highyearlywindspeed" />
+  </wsdl:message>
+  <wsdl:message name="HighyearlywindspeedSoapOut">
+    <wsdl:part name="parameters" element="tns:HighyearlywindspeedResponse" />
+  </wsdl:message>
+  <wsdl:message name="WinddirectionindegreesSoapIn">
+    <wsdl:part name="parameters" element="tns:Winddirectionindegrees" />
+  </wsdl:message>
+  <wsdl:message name="WinddirectionindegreesSoapOut">
+    <wsdl:part name="parameters" element="tns:WinddirectionindegreesResponse" />
+  </wsdl:message>
+  <wsdl:message name="WinddirectionsectorSoapIn">
+    <wsdl:part name="parameters" element="tns:Winddirectionsector" />
+  </wsdl:message>
+  <wsdl:message name="WinddirectionsectorSoapOut">
+    <wsdl:part name="parameters" element="tns:WinddirectionsectorResponse" />
+  </wsdl:message>
+  <wsdl:message name="WindchillSoapIn">
+    <wsdl:part name="parameters" element="tns:Windchill" />
+  </wsdl:message>
+  <wsdl:message name="WindchillSoapOut">
+    <wsdl:part name="parameters" element="tns:WindchillResponse" />
+  </wsdl:message>
+  <wsdl:message name="LowwindchillSoapIn">
+    <wsdl:part name="parameters" element="tns:Lowwindchill" />
+  </wsdl:message>
+  <wsdl:message name="LowwindchillSoapOut">
+    <wsdl:part name="parameters" element="tns:LowwindchillResponse" />
+  </wsdl:message>
+  <wsdl:message name="TimeofLowwindchillSoapIn">
+    <wsdl:part name="parameters" element="tns:TimeofLowwindchill" />
+  </wsdl:message>
+  <wsdl:message name="TimeofLowwindchillSoapOut">
+    <wsdl:part name="parameters" element="tns:TimeofLowwindchillResponse" />
+  </wsdl:message>
+  <wsdl:message name="LowmonthlywindchillSoapIn">
+    <wsdl:part name="parameters" element="tns:Lowmonthlywindchill" />
+  </wsdl:message>
+  <wsdl:message name="LowmonthlywindchillSoapOut">
+    <wsdl:part name="parameters" element="tns:LowmonthlywindchillResponse" />
+  </wsdl:message>
+  <wsdl:message name="LowyearlywindchillSoapIn">
+    <wsdl:part name="parameters" element="tns:Lowyearlywindchill" />
+  </wsdl:message>
+  <wsdl:message name="LowyearlywindchillSoapOut">
+    <wsdl:part name="parameters" element="tns:LowyearlywindchillResponse" />
+  </wsdl:message>
+  <wsdl:message name="OutsideheatindexSoapIn">
+    <wsdl:part name="parameters" element="tns:Outsideheatindex" />
+  </wsdl:message>
+  <wsdl:message name="OutsideheatindexSoapOut">
+    <wsdl:part name="parameters" element="tns:OutsideheatindexResponse" />
+  </wsdl:message>
+  <wsdl:message name="HighheatindexSoapIn">
+    <wsdl:part name="parameters" element="tns:Highheatindex" />
+  </wsdl:message>
+  <wsdl:message name="HighheatindexSoapOut">
+    <wsdl:part name="parameters" element="tns:HighheatindexResponse" />
+  </wsdl:message>
+  <wsdl:message name="TimeofHighheatindexSoapIn">
+    <wsdl:part name="parameters" element="tns:TimeofHighheatindex" />
+  </wsdl:message>
+  <wsdl:message name="TimeofHighheatindexSoapOut">
+    <wsdl:part name="parameters" element="tns:TimeofHighheatindexResponse" />
+  </wsdl:message>
+  <wsdl:message name="HighmonthlyheatindexSoapIn">
+    <wsdl:part name="parameters" element="tns:Highmonthlyheatindex" />
+  </wsdl:message>
+  <wsdl:message name="HighmonthlyheatindexSoapOut">
+    <wsdl:part name="parameters" element="tns:HighmonthlyheatindexResponse" />
+  </wsdl:message>
+  <wsdl:message name="HighyearlyheatindexSoapIn">
+    <wsdl:part name="parameters" element="tns:Highyearlyheatindex" />
+  </wsdl:message>
+  <wsdl:message name="HighyearlyheatindexSoapOut">
+    <wsdl:part name="parameters" element="tns:HighyearlyheatindexResponse" />
+  </wsdl:message>
+  <wsdl:message name="BarometerSoapIn">
+    <wsdl:part name="parameters" element="tns:Barometer" />
+  </wsdl:message>
+  <wsdl:message name="BarometerSoapOut">
+    <wsdl:part name="parameters" element="tns:BarometerResponse" />
+  </wsdl:message>
+  <wsdl:message name="BarometerTrendSoapIn">
+    <wsdl:part name="parameters" element="tns:BarometerTrend" />
+  </wsdl:message>
+  <wsdl:message name="BarometerTrendSoapOut">
+    <wsdl:part name="parameters" element="tns:BarometerTrendResponse" />
+  </wsdl:message>
+  <wsdl:message name="LowbarometerSoapIn">
+    <wsdl:part name="parameters" element="tns:Lowbarometer" />
+  </wsdl:message>
+  <wsdl:message name="LowbarometerSoapOut">
+    <wsdl:part name="parameters" element="tns:LowbarometerResponse" />
+  </wsdl:message>
+  <wsdl:message name="HighbarometerSoapIn">
+    <wsdl:part name="parameters" element="tns:Highbarometer" />
+  </wsdl:message>
+  <wsdl:message name="HighbarometerSoapOut">
+    <wsdl:part name="parameters" element="tns:HighbarometerResponse" />
+  </wsdl:message>
+  <wsdl:message name="LowmonthlybarometerSoapIn">
+    <wsdl:part name="parameters" element="tns:Lowmonthlybarometer" />
+  </wsdl:message>
+  <wsdl:message name="LowmonthlybarometerSoapOut">
+    <wsdl:part name="parameters" element="tns:LowmonthlybarometerResponse" />
+  </wsdl:message>
+  <wsdl:message name="HighmonthlybarometerSoapIn">
+    <wsdl:part name="parameters" element="tns:Highmonthlybarometer" />
+  </wsdl:message>
+  <wsdl:message name="HighmonthlybarometerSoapOut">
+    <wsdl:part name="parameters" element="tns:HighmonthlybarometerResponse" />
+  </wsdl:message>
+  <wsdl:message name="LowyearlybarometerSoapIn">
+    <wsdl:part name="parameters" element="tns:Lowyearlybarometer" />
+  </wsdl:message>
+  <wsdl:message name="LowyearlybarometerSoapOut">
+    <wsdl:part name="parameters" element="tns:LowyearlybarometerResponse" />
+  </wsdl:message>
+  <wsdl:message name="HighyearlybarometerSoapIn">
+    <wsdl:part name="parameters" element="tns:Highyearlybarometer" />
+  </wsdl:message>
+  <wsdl:message name="HighyearlybarometerSoapOut">
+    <wsdl:part name="parameters" element="tns:HighyearlybarometerResponse" />
+  </wsdl:message>
+  <wsdl:message name="TimeoflowbarometertimeSoapIn">
+    <wsdl:part name="parameters" element="tns:Timeoflowbarometertime" />
+  </wsdl:message>
+  <wsdl:message name="TimeoflowbarometertimeSoapOut">
+    <wsdl:part name="parameters" element="tns:TimeoflowbarometertimeResponse" />
+  </wsdl:message>
+  <wsdl:message name="TimeofHighbarometertimeSoapIn">
+    <wsdl:part name="parameters" element="tns:TimeofHighbarometertime" />
+  </wsdl:message>
+  <wsdl:message name="TimeofHighbarometertimeSoapOut">
+    <wsdl:part name="parameters" element="tns:TimeofHighbarometertimeResponse" />
+  </wsdl:message>
+  <wsdl:message name="DailyrainSoapIn">
+    <wsdl:part name="parameters" element="tns:Dailyrain" />
+  </wsdl:message>
+  <wsdl:message name="DailyrainSoapOut">
+    <wsdl:part name="parameters" element="tns:DailyrainResponse" />
+  </wsdl:message>
+  <wsdl:message name="StormrainSoapIn">
+    <wsdl:part name="parameters" element="tns:Stormrain" />
+  </wsdl:message>
+  <wsdl:message name="StormrainSoapOut">
+    <wsdl:part name="parameters" element="tns:StormrainResponse" />
+  </wsdl:message>
+  <wsdl:message name="HighrainrateSoapIn">
+    <wsdl:part name="parameters" element="tns:Highrainrate" />
+  </wsdl:message>
+  <wsdl:message name="HighrainrateSoapOut">
+    <wsdl:part name="parameters" element="tns:HighrainrateResponse" />
+  </wsdl:message>
+  <wsdl:message name="MonthlyrainSoapIn">
+    <wsdl:part name="parameters" element="tns:Monthlyrain" />
+  </wsdl:message>
+  <wsdl:message name="MonthlyrainSoapOut">
+    <wsdl:part name="parameters" element="tns:MonthlyrainResponse" />
+  </wsdl:message>
+  <wsdl:message name="YearlyrainSoapIn">
+    <wsdl:part name="parameters" element="tns:Yearlyrain" />
+  </wsdl:message>
+  <wsdl:message name="YearlyrainSoapOut">
+    <wsdl:part name="parameters" element="tns:YearlyrainResponse" />
+  </wsdl:message>
+  <wsdl:message name="CurrentRainrateSoapIn">
+    <wsdl:part name="parameters" element="tns:CurrentRainrate" />
+  </wsdl:message>
+  <wsdl:message name="CurrentRainrateSoapOut">
+    <wsdl:part name="parameters" element="tns:CurrentRainrateResponse" />
+  </wsdl:message>
+  <wsdl:message name="TimeofHighrainrateSoapIn">
+    <wsdl:part name="parameters" element="tns:TimeofHighrainrate" />
+  </wsdl:message>
+  <wsdl:message name="TimeofHighrainrateSoapOut">
+    <wsdl:part name="parameters" element="tns:TimeofHighrainrateResponse" />
+  </wsdl:message>
+  <wsdl:message name="HighHourlyRainRateSoapIn">
+    <wsdl:part name="parameters" element="tns:HighHourlyRainRate" />
+  </wsdl:message>
+  <wsdl:message name="HighHourlyRainRateSoapOut">
+    <wsdl:part name="parameters" element="tns:HighHourlyRainRateResponse" />
+  </wsdl:message>
+  <wsdl:message name="HighmonthlyrainrateSoapIn">
+    <wsdl:part name="parameters" element="tns:Highmonthlyrainrate" />
+  </wsdl:message>
+  <wsdl:message name="HighmonthlyrainrateSoapOut">
+    <wsdl:part name="parameters" element="tns:HighmonthlyrainrateResponse" />
+  </wsdl:message>
+  <wsdl:message name="HighyearlyrainrateSoapIn">
+    <wsdl:part name="parameters" element="tns:Highyearlyrainrate" />
+  </wsdl:message>
+  <wsdl:message name="HighyearlyrainrateSoapOut">
+    <wsdl:part name="parameters" element="tns:HighyearlyrainrateResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsidetemperatureSoapIn">
+    <wsdl:part name="parameters" element="tns:Insidetemperature" />
+  </wsdl:message>
+  <wsdl:message name="InsidetemperatureSoapOut">
+    <wsdl:part name="parameters" element="tns:InsidetemperatureResponse" />
+  </wsdl:message>
+  <wsdl:message name="HighinsideTemperatureSoapIn">
+    <wsdl:part name="parameters" element="tns:HighinsideTemperature" />
+  </wsdl:message>
+  <wsdl:message name="HighinsideTemperatureSoapOut">
+    <wsdl:part name="parameters" element="tns:HighinsideTemperatureResponse" />
+  </wsdl:message>
+  <wsdl:message name="LowinsideTemperatureSoapIn">
+    <wsdl:part name="parameters" element="tns:LowinsideTemperature" />
+  </wsdl:message>
+  <wsdl:message name="LowinsideTemperatureSoapOut">
+    <wsdl:part name="parameters" element="tns:LowinsideTemperatureResponse" />
+  </wsdl:message>
+  <wsdl:message name="TimeofHighinsideTemperatureSoapIn">
+    <wsdl:part name="parameters" element="tns:TimeofHighinsideTemperature" />
+  </wsdl:message>
+  <wsdl:message name="TimeofHighinsideTemperatureSoapOut">
+    <wsdl:part name="parameters" element="tns:TimeofHighinsideTemperatureResponse" />
+  </wsdl:message>
+  <wsdl:message name="TimeofLowinsideTemperatureSoapIn">
+    <wsdl:part name="parameters" element="tns:TimeofLowinsideTemperature" />
+  </wsdl:message>
+  <wsdl:message name="TimeofLowinsideTemperatureSoapOut">
+    <wsdl:part name="parameters" element="tns:TimeofLowinsideTemperatureResponse" />
+  </wsdl:message>
+  <wsdl:message name="HighmonthlyinsideTemperatureSoapIn">
+    <wsdl:part name="parameters" element="tns:HighmonthlyinsideTemperature" />
+  </wsdl:message>
+  <wsdl:message name="HighmonthlyinsideTemperatureSoapOut">
+    <wsdl:part name="parameters" element="tns:HighmonthlyinsideTemperatureResponse" />
+  </wsdl:message>
+  <wsdl:message name="LowmonthlyinsideTemperatureSoapIn">
+    <wsdl:part name="parameters" element="tns:LowmonthlyinsideTemperature" />
+  </wsdl:message>
+  <wsdl:message name="LowmonthlyinsideTemperatureSoapOut">
+    <wsdl:part name="parameters" element="tns:LowmonthlyinsideTemperatureResponse" />
+  </wsdl:message>
+  <wsdl:message name="HighyearlyinsideTemperatureSoapIn">
+    <wsdl:part name="parameters" element="tns:HighyearlyinsideTemperature" />
+  </wsdl:message>
+  <wsdl:message name="HighyearlyinsideTemperatureSoapOut">
+    <wsdl:part name="parameters" element="tns:HighyearlyinsideTemperatureResponse" />
+  </wsdl:message>
+  <wsdl:message name="LowyearlyinsideTemperatureSoapIn">
+    <wsdl:part name="parameters" element="tns:LowyearlyinsideTemperature" />
+  </wsdl:message>
+  <wsdl:message name="LowyearlyinsideTemperatureSoapOut">
+    <wsdl:part name="parameters" element="tns:LowyearlyinsideTemperatureResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsidehumiditySoapIn">
+    <wsdl:part name="parameters" element="tns:Insidehumidity" />
+  </wsdl:message>
+  <wsdl:message name="InsidehumiditySoapOut">
+    <wsdl:part name="parameters" element="tns:InsidehumidityResponse" />
+  </wsdl:message>
+  <wsdl:message name="HighinsidehumiditySoapIn">
+    <wsdl:part name="parameters" element="tns:Highinsidehumidity" />
+  </wsdl:message>
+  <wsdl:message name="HighinsidehumiditySoapOut">
+    <wsdl:part name="parameters" element="tns:HighinsidehumidityResponse" />
+  </wsdl:message>
+  <wsdl:message name="LowinsidehumiditySoapIn">
+    <wsdl:part name="parameters" element="tns:Lowinsidehumidity" />
+  </wsdl:message>
+  <wsdl:message name="LowinsidehumiditySoapOut">
+    <wsdl:part name="parameters" element="tns:LowinsidehumidityResponse" />
+  </wsdl:message>
+  <wsdl:message name="HighinsidehumiditytimeSoapIn">
+    <wsdl:part name="parameters" element="tns:Highinsidehumiditytime" />
+  </wsdl:message>
+  <wsdl:message name="HighinsidehumiditytimeSoapOut">
+    <wsdl:part name="parameters" element="tns:HighinsidehumiditytimeResponse" />
+  </wsdl:message>
+  <wsdl:message name="LowinsidehumiditytimeSoapIn">
+    <wsdl:part name="parameters" element="tns:Lowinsidehumiditytime" />
+  </wsdl:message>
+  <wsdl:message name="LowinsidehumiditytimeSoapOut">
+    <wsdl:part name="parameters" element="tns:LowinsidehumiditytimeResponse" />
+  </wsdl:message>
+  <wsdl:message name="HighmonthlyinsidehumiditySoapIn">
+    <wsdl:part name="parameters" element="tns:Highmonthlyinsidehumidity" />
+  </wsdl:message>
+  <wsdl:message name="HighmonthlyinsidehumiditySoapOut">
+    <wsdl:part name="parameters" element="tns:HighmonthlyinsidehumidityResponse" />
+  </wsdl:message>
+  <wsdl:message name="LowmonthlyinsidehumiditySoapIn">
+    <wsdl:part name="parameters" element="tns:Lowmonthlyinsidehumidity" />
+  </wsdl:message>
+  <wsdl:message name="LowmonthlyinsidehumiditySoapOut">
+    <wsdl:part name="parameters" element="tns:LowmonthlyinsidehumidityResponse" />
+  </wsdl:message>
+  <wsdl:message name="HighyearlyinsidehumiditySoapIn">
+    <wsdl:part name="parameters" element="tns:Highyearlyinsidehumidity" />
+  </wsdl:message>
+  <wsdl:message name="HighyearlyinsidehumiditySoapOut">
+    <wsdl:part name="parameters" element="tns:HighyearlyinsidehumidityResponse" />
+  </wsdl:message>
+  <wsdl:message name="LowyearlyinsidehumiditySoapIn">
+    <wsdl:part name="parameters" element="tns:Lowyearlyinsidehumidity" />
+  </wsdl:message>
+  <wsdl:message name="LowyearlyinsidehumiditySoapOut">
+    <wsdl:part name="parameters" element="tns:LowyearlyinsidehumidityResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsidedewpointSoapIn">
+    <wsdl:part name="parameters" element="tns:Insidedewpoint" />
+  </wsdl:message>
+  <wsdl:message name="InsidedewpointSoapOut">
+    <wsdl:part name="parameters" element="tns:InsidedewpointResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsideheatindexSoapIn">
+    <wsdl:part name="parameters" element="tns:Insideheatindex" />
+  </wsdl:message>
+  <wsdl:message name="InsideheatindexSoapOut">
+    <wsdl:part name="parameters" element="tns:InsideheatindexResponse" />
+  </wsdl:message>
+  <wsdl:message name="EMCSoapIn">
+    <wsdl:part name="parameters" element="tns:EMC" />
+  </wsdl:message>
+  <wsdl:message name="EMCSoapOut">
+    <wsdl:part name="parameters" element="tns:EMCResponse" />
+  </wsdl:message>
+  <wsdl:message name="AirDensitySoapIn">
+    <wsdl:part name="parameters" element="tns:AirDensity" />
+  </wsdl:message>
+  <wsdl:message name="AirDensitySoapOut">
+    <wsdl:part name="parameters" element="tns:AirDensityResponse" />
+  </wsdl:message>
+  <wsdl:message name="DateonthePCSoapIn">
+    <wsdl:part name="parameters" element="tns:DateonthePC" />
+  </wsdl:message>
+  <wsdl:message name="DateonthePCSoapOut">
+    <wsdl:part name="parameters" element="tns:DateonthePCResponse" />
+  </wsdl:message>
+  <wsdl:message name="LaketempSoapIn">
+    <wsdl:part name="parameters" element="tns:Laketemp" />
+  </wsdl:message>
+  <wsdl:message name="LaketempSoapOut">
+    <wsdl:part name="parameters" element="tns:LaketempResponse" />
+  </wsdl:message>
+  <wsdl:portType name="Service1Soap">
+    <wsdl:operation name="getweather_dataset">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Brings the weather date into the properties - call this first</wsdl:documentation>
+      <wsdl:input message="tns:getweather_datasetSoapIn" />
+      <wsdl:output message="tns:getweather_datasetSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="weatherset">
+      <wsdl:input message="tns:weathersetSoapIn" />
+      <wsdl:output message="tns:weathersetSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="OutsideTemperature">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Outside Temperature</wsdl:documentation>
+      <wsdl:input message="tns:OutsideTemperatureSoapIn" />
+      <wsdl:output message="tns:OutsideTemperatureSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TimeonthePC">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Time as it is on the PC.  Tempe, AZ is on MST and does not observe DST</wsdl:documentation>
+      <wsdl:input message="tns:TimeonthePCSoapIn" />
+      <wsdl:output message="tns:TimeonthePCSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DateontheStation">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Date on the weather station console</wsdl:documentation>
+      <wsdl:input message="tns:DateontheStationSoapIn" />
+      <wsdl:output message="tns:DateontheStationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TimeontheStation">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Time on the weather station console</wsdl:documentation>
+      <wsdl:input message="tns:TimeontheStationSoapIn" />
+      <wsdl:output message="tns:TimeontheStationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UTCTime">
+      <wsdl:input message="tns:UTCTimeSoapIn" />
+      <wsdl:output message="tns:UTCTimeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UTCDate">
+      <wsdl:input message="tns:UTCDateSoapIn" />
+      <wsdl:output message="tns:UTCDateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Sunrisetime">
+      <wsdl:input message="tns:SunrisetimeSoapIn" />
+      <wsdl:output message="tns:SunrisetimeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Sunsettime">
+      <wsdl:input message="tns:SunsettimeSoapIn" />
+      <wsdl:output message="tns:SunsettimeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="HighoutsideTemperature">
+      <wsdl:input message="tns:HighoutsideTemperatureSoapIn" />
+      <wsdl:output message="tns:HighoutsideTemperatureSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LowoutsideTemperature">
+      <wsdl:input message="tns:LowoutsideTemperatureSoapIn" />
+      <wsdl:output message="tns:LowoutsideTemperatureSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TimeofHighoutsideTemperature">
+      <wsdl:input message="tns:TimeofHighoutsideTemperatureSoapIn" />
+      <wsdl:output message="tns:TimeofHighoutsideTemperatureSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TimeofLowoutsideTemperature">
+      <wsdl:input message="tns:TimeofLowoutsideTemperatureSoapIn" />
+      <wsdl:output message="tns:TimeofLowoutsideTemperatureSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="HighmonthlyoutsideTemperature">
+      <wsdl:input message="tns:HighmonthlyoutsideTemperatureSoapIn" />
+      <wsdl:output message="tns:HighmonthlyoutsideTemperatureSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LowmonthlyoutsideTemperature">
+      <wsdl:input message="tns:LowmonthlyoutsideTemperatureSoapIn" />
+      <wsdl:output message="tns:LowmonthlyoutsideTemperatureSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="HighyearlyoutsideTemperature">
+      <wsdl:input message="tns:HighyearlyoutsideTemperatureSoapIn" />
+      <wsdl:output message="tns:HighyearlyoutsideTemperatureSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LowyearlyoutsideTemperature">
+      <wsdl:input message="tns:LowyearlyoutsideTemperatureSoapIn" />
+      <wsdl:output message="tns:LowyearlyoutsideTemperatureSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Outsidehumidity">
+      <wsdl:input message="tns:OutsidehumiditySoapIn" />
+      <wsdl:output message="tns:OutsidehumiditySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Lowhumidity">
+      <wsdl:input message="tns:LowhumiditySoapIn" />
+      <wsdl:output message="tns:LowhumiditySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Highhumidity">
+      <wsdl:input message="tns:HighhumiditySoapIn" />
+      <wsdl:output message="tns:HighhumiditySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TimeofLowhum">
+      <wsdl:input message="tns:TimeofLowhumSoapIn" />
+      <wsdl:output message="tns:TimeofLowhumSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TimeofHighhum">
+      <wsdl:input message="tns:TimeofHighhumSoapIn" />
+      <wsdl:output message="tns:TimeofHighhumSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Highmonthlyhumidity">
+      <wsdl:input message="tns:HighmonthlyhumiditySoapIn" />
+      <wsdl:output message="tns:HighmonthlyhumiditySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Lowmonthlyhumidity">
+      <wsdl:input message="tns:LowmonthlyhumiditySoapIn" />
+      <wsdl:output message="tns:LowmonthlyhumiditySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Highyearlyhumidity">
+      <wsdl:input message="tns:HighyearlyhumiditySoapIn" />
+      <wsdl:output message="tns:HighyearlyhumiditySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Lowyearlyhumidity">
+      <wsdl:input message="tns:LowyearlyhumiditySoapIn" />
+      <wsdl:output message="tns:LowyearlyhumiditySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Outsidedewpoint">
+      <wsdl:input message="tns:OutsidedewpointSoapIn" />
+      <wsdl:output message="tns:OutsidedewpointSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Highdewpoint">
+      <wsdl:input message="tns:HighdewpointSoapIn" />
+      <wsdl:output message="tns:HighdewpointSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Lowdewpoint">
+      <wsdl:input message="tns:LowdewpointSoapIn" />
+      <wsdl:output message="tns:LowdewpointSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TimeofHighdewpoint">
+      <wsdl:input message="tns:TimeofHighdewpointSoapIn" />
+      <wsdl:output message="tns:TimeofHighdewpointSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TimeofLowdewpoint">
+      <wsdl:input message="tns:TimeofLowdewpointSoapIn" />
+      <wsdl:output message="tns:TimeofLowdewpointSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Highmonthlydewpoint">
+      <wsdl:input message="tns:HighmonthlydewpointSoapIn" />
+      <wsdl:output message="tns:HighmonthlydewpointSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Lowmonthlydewpoint">
+      <wsdl:input message="tns:LowmonthlydewpointSoapIn" />
+      <wsdl:output message="tns:LowmonthlydewpointSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Highyearlydewpoint">
+      <wsdl:input message="tns:HighyearlydewpointSoapIn" />
+      <wsdl:output message="tns:HighyearlydewpointSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Lowyearlydewpoint">
+      <wsdl:input message="tns:LowyearlydewpointSoapIn" />
+      <wsdl:output message="tns:LowyearlydewpointSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Windspeed">
+      <wsdl:input message="tns:WindspeedSoapIn" />
+      <wsdl:output message="tns:WindspeedSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="tenminuteaveragewindspeed">
+      <wsdl:input message="tns:tenminuteaveragewindspeedSoapIn" />
+      <wsdl:output message="tns:tenminuteaveragewindspeedSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Highwindspeed">
+      <wsdl:input message="tns:HighwindspeedSoapIn" />
+      <wsdl:output message="tns:HighwindspeedSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TimeofHighwindspeed">
+      <wsdl:input message="tns:TimeofHighwindspeedSoapIn" />
+      <wsdl:output message="tns:TimeofHighwindspeedSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Highmonthlywindspeed">
+      <wsdl:input message="tns:HighmonthlywindspeedSoapIn" />
+      <wsdl:output message="tns:HighmonthlywindspeedSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Highyearlywindspeed">
+      <wsdl:input message="tns:HighyearlywindspeedSoapIn" />
+      <wsdl:output message="tns:HighyearlywindspeedSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Winddirectionindegrees">
+      <wsdl:input message="tns:WinddirectionindegreesSoapIn" />
+      <wsdl:output message="tns:WinddirectionindegreesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Winddirectionsector">
+      <wsdl:input message="tns:WinddirectionsectorSoapIn" />
+      <wsdl:output message="tns:WinddirectionsectorSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Windchill">
+      <wsdl:input message="tns:WindchillSoapIn" />
+      <wsdl:output message="tns:WindchillSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Lowwindchill">
+      <wsdl:input message="tns:LowwindchillSoapIn" />
+      <wsdl:output message="tns:LowwindchillSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TimeofLowwindchill">
+      <wsdl:input message="tns:TimeofLowwindchillSoapIn" />
+      <wsdl:output message="tns:TimeofLowwindchillSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Lowmonthlywindchill">
+      <wsdl:input message="tns:LowmonthlywindchillSoapIn" />
+      <wsdl:output message="tns:LowmonthlywindchillSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Lowyearlywindchill">
+      <wsdl:input message="tns:LowyearlywindchillSoapIn" />
+      <wsdl:output message="tns:LowyearlywindchillSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Outsideheatindex">
+      <wsdl:input message="tns:OutsideheatindexSoapIn" />
+      <wsdl:output message="tns:OutsideheatindexSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Highheatindex">
+      <wsdl:input message="tns:HighheatindexSoapIn" />
+      <wsdl:output message="tns:HighheatindexSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TimeofHighheatindex">
+      <wsdl:input message="tns:TimeofHighheatindexSoapIn" />
+      <wsdl:output message="tns:TimeofHighheatindexSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Highmonthlyheatindex">
+      <wsdl:input message="tns:HighmonthlyheatindexSoapIn" />
+      <wsdl:output message="tns:HighmonthlyheatindexSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Highyearlyheatindex">
+      <wsdl:input message="tns:HighyearlyheatindexSoapIn" />
+      <wsdl:output message="tns:HighyearlyheatindexSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Barometer">
+      <wsdl:input message="tns:BarometerSoapIn" />
+      <wsdl:output message="tns:BarometerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BarometerTrend">
+      <wsdl:input message="tns:BarometerTrendSoapIn" />
+      <wsdl:output message="tns:BarometerTrendSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Lowbarometer">
+      <wsdl:input message="tns:LowbarometerSoapIn" />
+      <wsdl:output message="tns:LowbarometerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Highbarometer">
+      <wsdl:input message="tns:HighbarometerSoapIn" />
+      <wsdl:output message="tns:HighbarometerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Lowmonthlybarometer">
+      <wsdl:input message="tns:LowmonthlybarometerSoapIn" />
+      <wsdl:output message="tns:LowmonthlybarometerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Highmonthlybarometer">
+      <wsdl:input message="tns:HighmonthlybarometerSoapIn" />
+      <wsdl:output message="tns:HighmonthlybarometerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Lowyearlybarometer">
+      <wsdl:input message="tns:LowyearlybarometerSoapIn" />
+      <wsdl:output message="tns:LowyearlybarometerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Highyearlybarometer">
+      <wsdl:input message="tns:HighyearlybarometerSoapIn" />
+      <wsdl:output message="tns:HighyearlybarometerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Timeoflowbarometertime">
+      <wsdl:input message="tns:TimeoflowbarometertimeSoapIn" />
+      <wsdl:output message="tns:TimeoflowbarometertimeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TimeofHighbarometertime">
+      <wsdl:input message="tns:TimeofHighbarometertimeSoapIn" />
+      <wsdl:output message="tns:TimeofHighbarometertimeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Dailyrain">
+      <wsdl:input message="tns:DailyrainSoapIn" />
+      <wsdl:output message="tns:DailyrainSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Stormrain">
+      <wsdl:input message="tns:StormrainSoapIn" />
+      <wsdl:output message="tns:StormrainSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Highrainrate">
+      <wsdl:input message="tns:HighrainrateSoapIn" />
+      <wsdl:output message="tns:HighrainrateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Monthlyrain">
+      <wsdl:input message="tns:MonthlyrainSoapIn" />
+      <wsdl:output message="tns:MonthlyrainSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Yearlyrain">
+      <wsdl:input message="tns:YearlyrainSoapIn" />
+      <wsdl:output message="tns:YearlyrainSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CurrentRainrate">
+      <wsdl:input message="tns:CurrentRainrateSoapIn" />
+      <wsdl:output message="tns:CurrentRainrateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TimeofHighrainrate">
+      <wsdl:input message="tns:TimeofHighrainrateSoapIn" />
+      <wsdl:output message="tns:TimeofHighrainrateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="HighHourlyRainRate">
+      <wsdl:input message="tns:HighHourlyRainRateSoapIn" />
+      <wsdl:output message="tns:HighHourlyRainRateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Highmonthlyrainrate">
+      <wsdl:input message="tns:HighmonthlyrainrateSoapIn" />
+      <wsdl:output message="tns:HighmonthlyrainrateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Highyearlyrainrate">
+      <wsdl:input message="tns:HighyearlyrainrateSoapIn" />
+      <wsdl:output message="tns:HighyearlyrainrateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Insidetemperature">
+      <wsdl:input message="tns:InsidetemperatureSoapIn" />
+      <wsdl:output message="tns:InsidetemperatureSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="HighinsideTemperature">
+      <wsdl:input message="tns:HighinsideTemperatureSoapIn" />
+      <wsdl:output message="tns:HighinsideTemperatureSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LowinsideTemperature">
+      <wsdl:input message="tns:LowinsideTemperatureSoapIn" />
+      <wsdl:output message="tns:LowinsideTemperatureSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TimeofHighinsideTemperature">
+      <wsdl:input message="tns:TimeofHighinsideTemperatureSoapIn" />
+      <wsdl:output message="tns:TimeofHighinsideTemperatureSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TimeofLowinsideTemperature">
+      <wsdl:input message="tns:TimeofLowinsideTemperatureSoapIn" />
+      <wsdl:output message="tns:TimeofLowinsideTemperatureSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="HighmonthlyinsideTemperature">
+      <wsdl:input message="tns:HighmonthlyinsideTemperatureSoapIn" />
+      <wsdl:output message="tns:HighmonthlyinsideTemperatureSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LowmonthlyinsideTemperature">
+      <wsdl:input message="tns:LowmonthlyinsideTemperatureSoapIn" />
+      <wsdl:output message="tns:LowmonthlyinsideTemperatureSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="HighyearlyinsideTemperature">
+      <wsdl:input message="tns:HighyearlyinsideTemperatureSoapIn" />
+      <wsdl:output message="tns:HighyearlyinsideTemperatureSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LowyearlyinsideTemperature">
+      <wsdl:input message="tns:LowyearlyinsideTemperatureSoapIn" />
+      <wsdl:output message="tns:LowyearlyinsideTemperatureSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Insidehumidity">
+      <wsdl:input message="tns:InsidehumiditySoapIn" />
+      <wsdl:output message="tns:InsidehumiditySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Highinsidehumidity">
+      <wsdl:input message="tns:HighinsidehumiditySoapIn" />
+      <wsdl:output message="tns:HighinsidehumiditySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Lowinsidehumidity">
+      <wsdl:input message="tns:LowinsidehumiditySoapIn" />
+      <wsdl:output message="tns:LowinsidehumiditySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Highinsidehumiditytime">
+      <wsdl:input message="tns:HighinsidehumiditytimeSoapIn" />
+      <wsdl:output message="tns:HighinsidehumiditytimeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Lowinsidehumiditytime">
+      <wsdl:input message="tns:LowinsidehumiditytimeSoapIn" />
+      <wsdl:output message="tns:LowinsidehumiditytimeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Highmonthlyinsidehumidity">
+      <wsdl:input message="tns:HighmonthlyinsidehumiditySoapIn" />
+      <wsdl:output message="tns:HighmonthlyinsidehumiditySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Lowmonthlyinsidehumidity">
+      <wsdl:input message="tns:LowmonthlyinsidehumiditySoapIn" />
+      <wsdl:output message="tns:LowmonthlyinsidehumiditySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Highyearlyinsidehumidity">
+      <wsdl:input message="tns:HighyearlyinsidehumiditySoapIn" />
+      <wsdl:output message="tns:HighyearlyinsidehumiditySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Lowyearlyinsidehumidity">
+      <wsdl:input message="tns:LowyearlyinsidehumiditySoapIn" />
+      <wsdl:output message="tns:LowyearlyinsidehumiditySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Insidedewpoint">
+      <wsdl:input message="tns:InsidedewpointSoapIn" />
+      <wsdl:output message="tns:InsidedewpointSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Insideheatindex">
+      <wsdl:input message="tns:InsideheatindexSoapIn" />
+      <wsdl:output message="tns:InsideheatindexSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EMC">
+      <wsdl:input message="tns:EMCSoapIn" />
+      <wsdl:output message="tns:EMCSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AirDensity">
+      <wsdl:input message="tns:AirDensitySoapIn" />
+      <wsdl:output message="tns:AirDensitySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DateonthePC">
+      <wsdl:input message="tns:DateonthePCSoapIn" />
+      <wsdl:output message="tns:DateonthePCSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Laketemp">
+      <wsdl:input message="tns:LaketempSoapIn" />
+      <wsdl:output message="tns:LaketempSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="Service1Soap" type="tns:Service1Soap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getweather_dataset">
+      <soap:operation soapAction="http://tempuri.org/Weatherservice/Service1/getweather_dataset" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="weatherset">
+      <soap:operation soapAction="http://tempuri.org/Weatherservice/Service1/weatherset" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OutsideTemperature">
+      <soap:operation soapAction="http://tempuri.org/Weatherservice/Service1/OutsideTemperature" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TimeonthePC">
+      <soap:operation soapAction="http://tempuri.org/Weatherservice/Service1/TimeonthePC" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DateontheStation">
+      <soap:operation soapAction="http://tempuri.org/Weatherservice/Service1/DateontheStation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TimeontheStation">
+      <soap:operation soapAction="http://tempuri.org/Weatherservice/Service1/TimeontheStation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UTCTime">
+      <soap:operation soapAction="http://tempuri.org/Weatherservice/Service1/UTCTime" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UTCDate">
+      <soap:operation soapAction="http://tempuri.org/Weatherservice/Service1/UTCDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Sunrisetime">
+      <soap:operation soapAction="http://tempuri.org/Weatherservice/Service1/Sunrisetime" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Sunsettime">
+      <soap:operation soapAction="http://tempuri.org/Weatherservice/Service1/Sunsettime" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HighoutsideTemperature">
+      <soap:operation soapAction="http://tempuri.org/Weatherservice/Service1/HighoutsideTemperature" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LowoutsideTemperature">
+      <soap:operation soapAction="http://tempuri.org/Weatherservice/Service1/LowoutsideTemperature" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TimeofHighoutsideTemperature">
+      <soap:operation soapAction="http://tempuri.org/Weatherservice/Service1/TimeofHighoutsideTemperature" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TimeofLowoutsideTemperature">
+      <soap:operation soapAction="http://tempuri.org/Weatherservice/Service1/TimeofLowoutsideTemperature" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HighmonthlyoutsideTemperature">
+      <soap:operation soapAction="http://tempuri.org/Weatherservice/Service1/HighmonthlyoutsideTemperature" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LowmonthlyoutsideTemperature">
+      <soap:operation soapAction="http://tempuri.org/Weatherservice/Service1/LowmonthlyoutsideTemperature" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HighyearlyoutsideTemperature">
+      <soap:operation soapAction="http://tempuri.org/Weatherservice/Service1/HighyearlyoutsideTemperature" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LowyearlyoutsideTemperature">
+      <soap:operation soapAction="http://tempuri.org/Weatherservice/Service1/LowyearlyoutsideTemperature" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Outsidehumidity">
+      <soap:operation soapAction="http://tempuri.org/Weatherservice/Service1/Outsidehumidity" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Lowhumidity">
+      <soap:operation soapAction="http://tempuri.org/Weatherservice/Service1/Lowhumidity" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Highhumidity">
+      <soap:operation soapAction="http://tempuri.org/Weatherservice/Service1/Highhumidity" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TimeofLowhum">
+      <soap:operation soapAction="http://tempuri.org/Weatherservice/Service1/TimeofLowhum" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TimeofHighhum">
+      <soap:operation soapAction="http://tempuri.org/Weatherservice/Service1/TimeofHighhum" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Highmonthlyhumidity">
+      <soap:operation soapAction="http://tempuri.org/Weatherservice/Service1/Highmonthlyhumidity" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Lowmonthlyhumidity">
+      <soap:operation soapAction="http://tempuri.org/Weatherservice/Service1/Lowmonthlyhumidity" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Highyearlyhumidity">
+      <soap:operation soapAction="http://tempuri.org/Weatherservice/Service1/Highyearlyhumidity" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Lowyearlyhumidity">
+      <soap:operation soapAction="http://tempuri.org/Weatherservice/Service1/Lowyearlyhumidity" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Outsidedewpoint">
+      <soap:operation soapAction="http://tempuri.org/Weatherservice/Service1/Outsidedewpoint" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Highdewpoint">
+      <soap:operation soapAction="http://tempuri.org/Weatherservice/Service1/Highdewpoint" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Lowdewpoint">
+      <soap:operation soapAction="http://tempuri.org/Weatherservice/Service1/Lowdewpoint" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TimeofHighdewpoint">
+      <soap:operation soapAction="http://tempuri.org/Weatherservice/Service1/TimeofHighdewpoint" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TimeofLowdewpoint">
+      <soap:operation soapAction="http://tempuri.org/Weatherservice/Service1/TimeofLowdewpoint" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Highmonthlydewpoint">
+      <soap:operation soapAction="http://tempuri.org/Weatherservice/Service1/Highmonthlydewpoint" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Lowmonthlydewpoint">
+      <soap:operation soapAction="http://tempuri.org/Weatherservice/Service1/Lowmonthlydewpoint" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Highyearlydewpoint">
+      <soap:operation soapAction="http://tempuri.org/Weatherservice/Service1/Highyearlydewpoint" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Lowyearlydewpoint">
+      <soap:operation soapAction="http://tempuri.org/Weatherservice/Service1/Lowyearlydewpoint" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Windspeed">
+      <soap:operation soapAction="http://tempuri.org/Weatherservice/Service1/Windspeed" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="tenminuteaveragewindspeed">
+      <soap:operation soapAction="http://tempuri.org/Weatherservice/Service1/tenminuteaveragewindspeed" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Highwindspeed">
+      <soap:operation soapAction="http://tempuri.org/Weatherservice/Service1/Highwindspeed" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TimeofHighwindspeed">
+      <soap:operation soapAction="http://tempuri.org/Weatherservice/Service1/TimeofHighwindspeed" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Highmonthlywindspeed">
+      <soap:operation soapAction="http://tempuri.org/Weatherservice/Service1/Highmonthlywindspeed" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Highyearlywindspeed">
+      <soap:operation soapAction="http://tempuri.org/Weatherservice/Service1/Highyearlywindspeed" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Winddirectionindegrees">
+      <soap:operation soapAction="http://tempuri.org/Weatherservice/Service1/Winddirectionindegrees" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Winddirectionsector">
+      <soap:operation soapAction="http://tempuri.org/Weatherservice/Service1/Winddirectionsector" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Windchill">
+      <soap:operation soapAction="http://tempuri.org/Weatherservice/Service1/Windchill" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Lowwindchill">
+      <soap:operation soapAction="http://tempuri.org/Weatherservice/Service1/Lowwindchill" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TimeofLowwindchill">
+      <soap:operation soapAction="http://tempuri.org/Weatherservice/Service1/TimeofLowwindchill" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Lowmonthlywindchill">
+      <soap:operation soapAction="http://tempuri.org/Weatherservice/Service1/Lowmonthlywindchill" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Lowyearlywindchill">
+      <soap:operation soapAction="http://tempuri.org/Weatherservice/Service1/Lowyearlywindchill" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Outsideheatindex">
+      <soap:operation soapAction="http://tempuri.org/Weatherservice/Service1/Outsideheatindex" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Highheatindex">
+      <soap:operation soapAction="http://tempuri.org/Weatherservice/Service1/Highheatindex" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TimeofHighheatindex">
+      <soap:operation soapAction="http://tempuri.org/Weatherservice/Service1/TimeofHighheatindex" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Highmonthlyheatindex">
+      <soap:operation soapAction="http://tempuri.org/Weatherservice/Service1/Highmonthlyheatindex" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Highyearlyheatindex">
+      <soap:operation soapAction="http://tempuri.org/Weatherservice/Service1/Highyearlyheatindex" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Barometer">
+      <soap:operation soapAction="http://tempuri.org/Weatherservice/Service1/Barometer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BarometerTrend">
+      <soap:operation soapAction="http://tempuri.org/Weatherservice/Service1/BarometerTrend" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Lowbarometer">
+      <soap:operation soapAction="http://tempuri.org/Weatherservice/Service1/Lowbarometer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Highbarometer">
+      <soap:operation soapAction="http://tempuri.org/Weatherservice/Service1/Highbarometer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Lowmonthlybarometer">
+      <soap:operation soapAction="http://tempuri.org/Weatherservice/Service1/Lowmonthlybarometer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Highmonthlybarometer">
+      <soap:operation soapAction="http://tempuri.org/Weatherservice/Service1/Highmonthlybarometer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Lowyearlybarometer">
+      <soap:operation soapAction="http://tempuri.org/Weatherservice/Service1/Lowyearlybarometer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Highyearlybarometer">
+      <soap:operation soapAction="http://tempuri.org/Weatherservice/Service1/Highyearlybarometer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Timeoflowbarometertime">
+      <soap:operation soapAction="http://tempuri.org/Weatherservice/Service1/Timeoflowbarometertime" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TimeofHighbarometertime">
+      <soap:operation soapAction="http://tempuri.org/Weatherservice/Service1/TimeofHighbarometertime" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Dailyrain">
+      <soap:operation soapAction="http://tempuri.org/Weatherservice/Service1/Dailyrain" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Stormrain">
+      <soap:operation soapAction="http://tempuri.org/Weatherservice/Service1/Stormrain" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Highrainrate">
+      <soap:operation soapAction="http://tempuri.org/Weatherservice/Service1/Highrainrate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Monthlyrain">
+      <soap:operation soapAction="http://tempuri.org/Weatherservice/Service1/Monthlyrain" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Yearlyrain">
+      <soap:operation soapAction="http://tempuri.org/Weatherservice/Service1/Yearlyrain" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CurrentRainrate">
+      <soap:operation soapAction="http://tempuri.org/Weatherservice/Service1/CurrentRainrate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TimeofHighrainrate">
+      <soap:operation soapAction="http://tempuri.org/Weatherservice/Service1/TimeofHighrainrate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HighHourlyRainRate">
+      <soap:operation soapAction="http://tempuri.org/Weatherservice/Service1/HighHourlyRainRate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Highmonthlyrainrate">
+      <soap:operation soapAction="http://tempuri.org/Weatherservice/Service1/Highmonthlyrainrate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Highyearlyrainrate">
+      <soap:operation soapAction="http://tempuri.org/Weatherservice/Service1/Highyearlyrainrate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Insidetemperature">
+      <soap:operation soapAction="http://tempuri.org/Weatherservice/Service1/Insidetemperature" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HighinsideTemperature">
+      <soap:operation soapAction="http://tempuri.org/Weatherservice/Service1/HighinsideTemperature" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LowinsideTemperature">
+      <soap:operation soapAction="http://tempuri.org/Weatherservice/Service1/LowinsideTemperature" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TimeofHighinsideTemperature">
+      <soap:operation soapAction="http://tempuri.org/Weatherservice/Service1/TimeofHighinsideTemperature" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TimeofLowinsideTemperature">
+      <soap:operation soapAction="http://tempuri.org/Weatherservice/Service1/TimeofLowinsideTemperature" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HighmonthlyinsideTemperature">
+      <soap:operation soapAction="http://tempuri.org/Weatherservice/Service1/HighmonthlyinsideTemperature" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LowmonthlyinsideTemperature">
+      <soap:operation soapAction="http://tempuri.org/Weatherservice/Service1/LowmonthlyinsideTemperature" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HighyearlyinsideTemperature">
+      <soap:operation soapAction="http://tempuri.org/Weatherservice/Service1/HighyearlyinsideTemperature" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LowyearlyinsideTemperature">
+      <soap:operation soapAction="http://tempuri.org/Weatherservice/Service1/LowyearlyinsideTemperature" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Insidehumidity">
+      <soap:operation soapAction="http://tempuri.org/Weatherservice/Service1/Insidehumidity" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Highinsidehumidity">
+      <soap:operation soapAction="http://tempuri.org/Weatherservice/Service1/Highinsidehumidity" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Lowinsidehumidity">
+      <soap:operation soapAction="http://tempuri.org/Weatherservice/Service1/Lowinsidehumidity" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Highinsidehumiditytime">
+      <soap:operation soapAction="http://tempuri.org/Weatherservice/Service1/Highinsidehumiditytime" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Lowinsidehumiditytime">
+      <soap:operation soapAction="http://tempuri.org/Weatherservice/Service1/Lowinsidehumiditytime" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Highmonthlyinsidehumidity">
+      <soap:operation soapAction="http://tempuri.org/Weatherservice/Service1/Highmonthlyinsidehumidity" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Lowmonthlyinsidehumidity">
+      <soap:operation soapAction="http://tempuri.org/Weatherservice/Service1/Lowmonthlyinsidehumidity" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Highyearlyinsidehumidity">
+      <soap:operation soapAction="http://tempuri.org/Weatherservice/Service1/Highyearlyinsidehumidity" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Lowyearlyinsidehumidity">
+      <soap:operation soapAction="http://tempuri.org/Weatherservice/Service1/Lowyearlyinsidehumidity" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Insidedewpoint">
+      <soap:operation soapAction="http://tempuri.org/Weatherservice/Service1/Insidedewpoint" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Insideheatindex">
+      <soap:operation soapAction="http://tempuri.org/Weatherservice/Service1/Insideheatindex" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EMC">
+      <soap:operation soapAction="http://tempuri.org/Weatherservice/Service1/EMC" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AirDensity">
+      <soap:operation soapAction="http://tempuri.org/Weatherservice/Service1/AirDensity" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DateonthePC">
+      <soap:operation soapAction="http://tempuri.org/Weatherservice/Service1/DateonthePC" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Laketemp">
+      <soap:operation soapAction="http://tempuri.org/Weatherservice/Service1/Laketemp" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="Service1Soap12" type="tns:Service1Soap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getweather_dataset">
+      <soap12:operation soapAction="http://tempuri.org/Weatherservice/Service1/getweather_dataset" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="weatherset">
+      <soap12:operation soapAction="http://tempuri.org/Weatherservice/Service1/weatherset" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OutsideTemperature">
+      <soap12:operation soapAction="http://tempuri.org/Weatherservice/Service1/OutsideTemperature" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TimeonthePC">
+      <soap12:operation soapAction="http://tempuri.org/Weatherservice/Service1/TimeonthePC" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DateontheStation">
+      <soap12:operation soapAction="http://tempuri.org/Weatherservice/Service1/DateontheStation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TimeontheStation">
+      <soap12:operation soapAction="http://tempuri.org/Weatherservice/Service1/TimeontheStation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UTCTime">
+      <soap12:operation soapAction="http://tempuri.org/Weatherservice/Service1/UTCTime" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UTCDate">
+      <soap12:operation soapAction="http://tempuri.org/Weatherservice/Service1/UTCDate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Sunrisetime">
+      <soap12:operation soapAction="http://tempuri.org/Weatherservice/Service1/Sunrisetime" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Sunsettime">
+      <soap12:operation soapAction="http://tempuri.org/Weatherservice/Service1/Sunsettime" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HighoutsideTemperature">
+      <soap12:operation soapAction="http://tempuri.org/Weatherservice/Service1/HighoutsideTemperature" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LowoutsideTemperature">
+      <soap12:operation soapAction="http://tempuri.org/Weatherservice/Service1/LowoutsideTemperature" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TimeofHighoutsideTemperature">
+      <soap12:operation soapAction="http://tempuri.org/Weatherservice/Service1/TimeofHighoutsideTemperature" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TimeofLowoutsideTemperature">
+      <soap12:operation soapAction="http://tempuri.org/Weatherservice/Service1/TimeofLowoutsideTemperature" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HighmonthlyoutsideTemperature">
+      <soap12:operation soapAction="http://tempuri.org/Weatherservice/Service1/HighmonthlyoutsideTemperature" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LowmonthlyoutsideTemperature">
+      <soap12:operation soapAction="http://tempuri.org/Weatherservice/Service1/LowmonthlyoutsideTemperature" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HighyearlyoutsideTemperature">
+      <soap12:operation soapAction="http://tempuri.org/Weatherservice/Service1/HighyearlyoutsideTemperature" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LowyearlyoutsideTemperature">
+      <soap12:operation soapAction="http://tempuri.org/Weatherservice/Service1/LowyearlyoutsideTemperature" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Outsidehumidity">
+      <soap12:operation soapAction="http://tempuri.org/Weatherservice/Service1/Outsidehumidity" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Lowhumidity">
+      <soap12:operation soapAction="http://tempuri.org/Weatherservice/Service1/Lowhumidity" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Highhumidity">
+      <soap12:operation soapAction="http://tempuri.org/Weatherservice/Service1/Highhumidity" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TimeofLowhum">
+      <soap12:operation soapAction="http://tempuri.org/Weatherservice/Service1/TimeofLowhum" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TimeofHighhum">
+      <soap12:operation soapAction="http://tempuri.org/Weatherservice/Service1/TimeofHighhum" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Highmonthlyhumidity">
+      <soap12:operation soapAction="http://tempuri.org/Weatherservice/Service1/Highmonthlyhumidity" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Lowmonthlyhumidity">
+      <soap12:operation soapAction="http://tempuri.org/Weatherservice/Service1/Lowmonthlyhumidity" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Highyearlyhumidity">
+      <soap12:operation soapAction="http://tempuri.org/Weatherservice/Service1/Highyearlyhumidity" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Lowyearlyhumidity">
+      <soap12:operation soapAction="http://tempuri.org/Weatherservice/Service1/Lowyearlyhumidity" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Outsidedewpoint">
+      <soap12:operation soapAction="http://tempuri.org/Weatherservice/Service1/Outsidedewpoint" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Highdewpoint">
+      <soap12:operation soapAction="http://tempuri.org/Weatherservice/Service1/Highdewpoint" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Lowdewpoint">
+      <soap12:operation soapAction="http://tempuri.org/Weatherservice/Service1/Lowdewpoint" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TimeofHighdewpoint">
+      <soap12:operation soapAction="http://tempuri.org/Weatherservice/Service1/TimeofHighdewpoint" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TimeofLowdewpoint">
+      <soap12:operation soapAction="http://tempuri.org/Weatherservice/Service1/TimeofLowdewpoint" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Highmonthlydewpoint">
+      <soap12:operation soapAction="http://tempuri.org/Weatherservice/Service1/Highmonthlydewpoint" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Lowmonthlydewpoint">
+      <soap12:operation soapAction="http://tempuri.org/Weatherservice/Service1/Lowmonthlydewpoint" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Highyearlydewpoint">
+      <soap12:operation soapAction="http://tempuri.org/Weatherservice/Service1/Highyearlydewpoint" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Lowyearlydewpoint">
+      <soap12:operation soapAction="http://tempuri.org/Weatherservice/Service1/Lowyearlydewpoint" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Windspeed">
+      <soap12:operation soapAction="http://tempuri.org/Weatherservice/Service1/Windspeed" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="tenminuteaveragewindspeed">
+      <soap12:operation soapAction="http://tempuri.org/Weatherservice/Service1/tenminuteaveragewindspeed" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Highwindspeed">
+      <soap12:operation soapAction="http://tempuri.org/Weatherservice/Service1/Highwindspeed" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TimeofHighwindspeed">
+      <soap12:operation soapAction="http://tempuri.org/Weatherservice/Service1/TimeofHighwindspeed" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Highmonthlywindspeed">
+      <soap12:operation soapAction="http://tempuri.org/Weatherservice/Service1/Highmonthlywindspeed" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Highyearlywindspeed">
+      <soap12:operation soapAction="http://tempuri.org/Weatherservice/Service1/Highyearlywindspeed" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Winddirectionindegrees">
+      <soap12:operation soapAction="http://tempuri.org/Weatherservice/Service1/Winddirectionindegrees" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Winddirectionsector">
+      <soap12:operation soapAction="http://tempuri.org/Weatherservice/Service1/Winddirectionsector" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Windchill">
+      <soap12:operation soapAction="http://tempuri.org/Weatherservice/Service1/Windchill" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Lowwindchill">
+      <soap12:operation soapAction="http://tempuri.org/Weatherservice/Service1/Lowwindchill" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TimeofLowwindchill">
+      <soap12:operation soapAction="http://tempuri.org/Weatherservice/Service1/TimeofLowwindchill" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Lowmonthlywindchill">
+      <soap12:operation soapAction="http://tempuri.org/Weatherservice/Service1/Lowmonthlywindchill" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Lowyearlywindchill">
+      <soap12:operation soapAction="http://tempuri.org/Weatherservice/Service1/Lowyearlywindchill" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Outsideheatindex">
+      <soap12:operation soapAction="http://tempuri.org/Weatherservice/Service1/Outsideheatindex" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Highheatindex">
+      <soap12:operation soapAction="http://tempuri.org/Weatherservice/Service1/Highheatindex" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TimeofHighheatindex">
+      <soap12:operation soapAction="http://tempuri.org/Weatherservice/Service1/TimeofHighheatindex" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Highmonthlyheatindex">
+      <soap12:operation soapAction="http://tempuri.org/Weatherservice/Service1/Highmonthlyheatindex" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Highyearlyheatindex">
+      <soap12:operation soapAction="http://tempuri.org/Weatherservice/Service1/Highyearlyheatindex" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Barometer">
+      <soap12:operation soapAction="http://tempuri.org/Weatherservice/Service1/Barometer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BarometerTrend">
+      <soap12:operation soapAction="http://tempuri.org/Weatherservice/Service1/BarometerTrend" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Lowbarometer">
+      <soap12:operation soapAction="http://tempuri.org/Weatherservice/Service1/Lowbarometer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Highbarometer">
+      <soap12:operation soapAction="http://tempuri.org/Weatherservice/Service1/Highbarometer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Lowmonthlybarometer">
+      <soap12:operation soapAction="http://tempuri.org/Weatherservice/Service1/Lowmonthlybarometer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Highmonthlybarometer">
+      <soap12:operation soapAction="http://tempuri.org/Weatherservice/Service1/Highmonthlybarometer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Lowyearlybarometer">
+      <soap12:operation soapAction="http://tempuri.org/Weatherservice/Service1/Lowyearlybarometer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Highyearlybarometer">
+      <soap12:operation soapAction="http://tempuri.org/Weatherservice/Service1/Highyearlybarometer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Timeoflowbarometertime">
+      <soap12:operation soapAction="http://tempuri.org/Weatherservice/Service1/Timeoflowbarometertime" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TimeofHighbarometertime">
+      <soap12:operation soapAction="http://tempuri.org/Weatherservice/Service1/TimeofHighbarometertime" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Dailyrain">
+      <soap12:operation soapAction="http://tempuri.org/Weatherservice/Service1/Dailyrain" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Stormrain">
+      <soap12:operation soapAction="http://tempuri.org/Weatherservice/Service1/Stormrain" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Highrainrate">
+      <soap12:operation soapAction="http://tempuri.org/Weatherservice/Service1/Highrainrate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Monthlyrain">
+      <soap12:operation soapAction="http://tempuri.org/Weatherservice/Service1/Monthlyrain" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Yearlyrain">
+      <soap12:operation soapAction="http://tempuri.org/Weatherservice/Service1/Yearlyrain" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CurrentRainrate">
+      <soap12:operation soapAction="http://tempuri.org/Weatherservice/Service1/CurrentRainrate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TimeofHighrainrate">
+      <soap12:operation soapAction="http://tempuri.org/Weatherservice/Service1/TimeofHighrainrate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HighHourlyRainRate">
+      <soap12:operation soapAction="http://tempuri.org/Weatherservice/Service1/HighHourlyRainRate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Highmonthlyrainrate">
+      <soap12:operation soapAction="http://tempuri.org/Weatherservice/Service1/Highmonthlyrainrate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Highyearlyrainrate">
+      <soap12:operation soapAction="http://tempuri.org/Weatherservice/Service1/Highyearlyrainrate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Insidetemperature">
+      <soap12:operation soapAction="http://tempuri.org/Weatherservice/Service1/Insidetemperature" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HighinsideTemperature">
+      <soap12:operation soapAction="http://tempuri.org/Weatherservice/Service1/HighinsideTemperature" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LowinsideTemperature">
+      <soap12:operation soapAction="http://tempuri.org/Weatherservice/Service1/LowinsideTemperature" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TimeofHighinsideTemperature">
+      <soap12:operation soapAction="http://tempuri.org/Weatherservice/Service1/TimeofHighinsideTemperature" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TimeofLowinsideTemperature">
+      <soap12:operation soapAction="http://tempuri.org/Weatherservice/Service1/TimeofLowinsideTemperature" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HighmonthlyinsideTemperature">
+      <soap12:operation soapAction="http://tempuri.org/Weatherservice/Service1/HighmonthlyinsideTemperature" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LowmonthlyinsideTemperature">
+      <soap12:operation soapAction="http://tempuri.org/Weatherservice/Service1/LowmonthlyinsideTemperature" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HighyearlyinsideTemperature">
+      <soap12:operation soapAction="http://tempuri.org/Weatherservice/Service1/HighyearlyinsideTemperature" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LowyearlyinsideTemperature">
+      <soap12:operation soapAction="http://tempuri.org/Weatherservice/Service1/LowyearlyinsideTemperature" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Insidehumidity">
+      <soap12:operation soapAction="http://tempuri.org/Weatherservice/Service1/Insidehumidity" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Highinsidehumidity">
+      <soap12:operation soapAction="http://tempuri.org/Weatherservice/Service1/Highinsidehumidity" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Lowinsidehumidity">
+      <soap12:operation soapAction="http://tempuri.org/Weatherservice/Service1/Lowinsidehumidity" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Highinsidehumiditytime">
+      <soap12:operation soapAction="http://tempuri.org/Weatherservice/Service1/Highinsidehumiditytime" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Lowinsidehumiditytime">
+      <soap12:operation soapAction="http://tempuri.org/Weatherservice/Service1/Lowinsidehumiditytime" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Highmonthlyinsidehumidity">
+      <soap12:operation soapAction="http://tempuri.org/Weatherservice/Service1/Highmonthlyinsidehumidity" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Lowmonthlyinsidehumidity">
+      <soap12:operation soapAction="http://tempuri.org/Weatherservice/Service1/Lowmonthlyinsidehumidity" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Highyearlyinsidehumidity">
+      <soap12:operation soapAction="http://tempuri.org/Weatherservice/Service1/Highyearlyinsidehumidity" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Lowyearlyinsidehumidity">
+      <soap12:operation soapAction="http://tempuri.org/Weatherservice/Service1/Lowyearlyinsidehumidity" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Insidedewpoint">
+      <soap12:operation soapAction="http://tempuri.org/Weatherservice/Service1/Insidedewpoint" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Insideheatindex">
+      <soap12:operation soapAction="http://tempuri.org/Weatherservice/Service1/Insideheatindex" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EMC">
+      <soap12:operation soapAction="http://tempuri.org/Weatherservice/Service1/EMC" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AirDensity">
+      <soap12:operation soapAction="http://tempuri.org/Weatherservice/Service1/AirDensity" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DateonthePC">
+      <soap12:operation soapAction="http://tempuri.org/Weatherservice/Service1/DateonthePC" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Laketemp">
+      <soap12:operation soapAction="http://tempuri.org/Weatherservice/Service1/Laketemp" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service1">
+    <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This is a free web service provided by the City of Tempe.</wsdl:documentation>
+    <wsdl:port name="Service1Soap" binding="tns:Service1Soap">
+      <soap:address location="http://www.tempe.gov/wx/default.asmx" />
+    </wsdl:port>
+    <wsdl:port name="Service1Soap12" binding="tns:Service1Soap12">
+      <soap12:address location="http://www.tempe.gov/wx/default.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

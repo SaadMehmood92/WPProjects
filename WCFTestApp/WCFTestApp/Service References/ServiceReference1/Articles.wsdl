@@ -1,0 +1,557 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://dsetzer.27seconds.com/ws/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://dsetzer.27seconds.com/ws/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://dsetzer.27seconds.com/ws/">
+      <s:element name="GetArticle">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="articleId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetArticleResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetArticleResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SearchArticles">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="authorId" type="tns:ArrayOfAnyType" />
+            <s:element minOccurs="0" maxOccurs="1" name="articleApplicable" type="tns:ArrayOfAnyType" />
+            <s:element minOccurs="0" maxOccurs="1" name="articleTitle" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="articleSummary" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="articleKeywords" type="tns:ArrayOfAnyType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfAnyType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="anyType" nillable="true" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SearchArticlesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SearchArticlesResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RateArticle">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="articleId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="rating" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RateArticleResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RateArticleResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RateArticleWithComments">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="articleId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="rating" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="comments" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RateArticleWithCommentsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RateArticleWithCommentsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetArticleLookups">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetArticleLookupsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetArticleLookupsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetArticleLookupsForArticle">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="articleId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetArticleLookupsForArticleResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetArticleLookupsForArticleResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DataSet" nillable="true">
+        <s:complexType>
+          <s:sequence>
+            <s:element ref="s:schema" />
+            <s:any />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetArticleSoapIn">
+    <wsdl:part name="parameters" element="tns:GetArticle" />
+  </wsdl:message>
+  <wsdl:message name="GetArticleSoapOut">
+    <wsdl:part name="parameters" element="tns:GetArticleResponse" />
+  </wsdl:message>
+  <wsdl:message name="SearchArticlesSoapIn">
+    <wsdl:part name="parameters" element="tns:SearchArticles" />
+  </wsdl:message>
+  <wsdl:message name="SearchArticlesSoapOut">
+    <wsdl:part name="parameters" element="tns:SearchArticlesResponse" />
+  </wsdl:message>
+  <wsdl:message name="RateArticleSoapIn">
+    <wsdl:part name="parameters" element="tns:RateArticle" />
+  </wsdl:message>
+  <wsdl:message name="RateArticleSoapOut">
+    <wsdl:part name="parameters" element="tns:RateArticleResponse" />
+  </wsdl:message>
+  <wsdl:message name="RateArticleWithCommentsSoapIn">
+    <wsdl:part name="parameters" element="tns:RateArticleWithComments" />
+  </wsdl:message>
+  <wsdl:message name="RateArticleWithCommentsSoapOut">
+    <wsdl:part name="parameters" element="tns:RateArticleWithCommentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetArticleLookupsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetArticleLookups" />
+  </wsdl:message>
+  <wsdl:message name="GetArticleLookupsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetArticleLookupsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetArticleLookupsForArticleSoapIn">
+    <wsdl:part name="parameters" element="tns:GetArticleLookupsForArticle" />
+  </wsdl:message>
+  <wsdl:message name="GetArticleLookupsForArticleSoapOut">
+    <wsdl:part name="parameters" element="tns:GetArticleLookupsForArticleResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetArticleHttpGetIn">
+    <wsdl:part name="articleId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetArticleHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="RateArticleHttpGetIn">
+    <wsdl:part name="articleId" type="s:string" />
+    <wsdl:part name="rating" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="RateArticleHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="RateArticleWithCommentsHttpGetIn">
+    <wsdl:part name="articleId" type="s:string" />
+    <wsdl:part name="rating" type="s:string" />
+    <wsdl:part name="comments" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="RateArticleWithCommentsHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="GetArticleLookupsHttpGetIn" />
+  <wsdl:message name="GetArticleLookupsHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="GetArticleLookupsForArticleHttpGetIn">
+    <wsdl:part name="articleId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetArticleLookupsForArticleHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="GetArticleHttpPostIn">
+    <wsdl:part name="articleId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetArticleHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="RateArticleHttpPostIn">
+    <wsdl:part name="articleId" type="s:string" />
+    <wsdl:part name="rating" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="RateArticleHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="RateArticleWithCommentsHttpPostIn">
+    <wsdl:part name="articleId" type="s:string" />
+    <wsdl:part name="rating" type="s:string" />
+    <wsdl:part name="comments" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="RateArticleWithCommentsHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="GetArticleLookupsHttpPostIn" />
+  <wsdl:message name="GetArticleLookupsHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="GetArticleLookupsForArticleHttpPostIn">
+    <wsdl:part name="articleId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetArticleLookupsForArticleHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:portType name="ArticlesSoap">
+    <wsdl:operation name="GetArticle">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get a single article, returned as a dataset.</wsdl:documentation>
+      <wsdl:input message="tns:GetArticleSoapIn" />
+      <wsdl:output message="tns:GetArticleSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchArticles">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Search articles by various fields.</wsdl:documentation>
+      <wsdl:input message="tns:SearchArticlesSoapIn" />
+      <wsdl:output message="tns:SearchArticlesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RateArticle">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Rate an article on a scale of 1 to 10, 1 being bad and 10 being a holy savior.  Article dataset is returned.</wsdl:documentation>
+      <wsdl:input message="tns:RateArticleSoapIn" />
+      <wsdl:output message="tns:RateArticleSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RateArticle">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Rate an article on a scale of 1 to 10, 1 being bad and 10 being a holy savior.  Include comments about the article.  Article dataset is returned.</wsdl:documentation>
+      <wsdl:input name="RateArticleWithComments" message="tns:RateArticleWithCommentsSoapIn" />
+      <wsdl:output name="RateArticleWithComments" message="tns:RateArticleWithCommentsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetArticleLookups">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get all article lookups, regardless of article.</wsdl:documentation>
+      <wsdl:input message="tns:GetArticleLookupsSoapIn" />
+      <wsdl:output message="tns:GetArticleLookupsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetArticleLookups">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get all article lookups, for a specific article.</wsdl:documentation>
+      <wsdl:input name="GetArticleLookupsForArticle" message="tns:GetArticleLookupsForArticleSoapIn" />
+      <wsdl:output name="GetArticleLookupsForArticle" message="tns:GetArticleLookupsForArticleSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="ArticlesHttpGet">
+    <wsdl:operation name="GetArticle">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get a single article, returned as a dataset.</wsdl:documentation>
+      <wsdl:input message="tns:GetArticleHttpGetIn" />
+      <wsdl:output message="tns:GetArticleHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RateArticle">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Rate an article on a scale of 1 to 10, 1 being bad and 10 being a holy savior.  Article dataset is returned.</wsdl:documentation>
+      <wsdl:input message="tns:RateArticleHttpGetIn" />
+      <wsdl:output message="tns:RateArticleHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RateArticle">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Rate an article on a scale of 1 to 10, 1 being bad and 10 being a holy savior.  Include comments about the article.  Article dataset is returned.</wsdl:documentation>
+      <wsdl:input name="RateArticleWithComments" message="tns:RateArticleWithCommentsHttpGetIn" />
+      <wsdl:output name="RateArticleWithComments" message="tns:RateArticleWithCommentsHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetArticleLookups">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get all article lookups, regardless of article.</wsdl:documentation>
+      <wsdl:input message="tns:GetArticleLookupsHttpGetIn" />
+      <wsdl:output message="tns:GetArticleLookupsHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetArticleLookups">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get all article lookups, for a specific article.</wsdl:documentation>
+      <wsdl:input name="GetArticleLookupsForArticle" message="tns:GetArticleLookupsForArticleHttpGetIn" />
+      <wsdl:output name="GetArticleLookupsForArticle" message="tns:GetArticleLookupsForArticleHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="ArticlesHttpPost">
+    <wsdl:operation name="GetArticle">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get a single article, returned as a dataset.</wsdl:documentation>
+      <wsdl:input message="tns:GetArticleHttpPostIn" />
+      <wsdl:output message="tns:GetArticleHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RateArticle">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Rate an article on a scale of 1 to 10, 1 being bad and 10 being a holy savior.  Article dataset is returned.</wsdl:documentation>
+      <wsdl:input message="tns:RateArticleHttpPostIn" />
+      <wsdl:output message="tns:RateArticleHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RateArticle">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Rate an article on a scale of 1 to 10, 1 being bad and 10 being a holy savior.  Include comments about the article.  Article dataset is returned.</wsdl:documentation>
+      <wsdl:input name="RateArticleWithComments" message="tns:RateArticleWithCommentsHttpPostIn" />
+      <wsdl:output name="RateArticleWithComments" message="tns:RateArticleWithCommentsHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetArticleLookups">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get all article lookups, regardless of article.</wsdl:documentation>
+      <wsdl:input message="tns:GetArticleLookupsHttpPostIn" />
+      <wsdl:output message="tns:GetArticleLookupsHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetArticleLookups">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get all article lookups, for a specific article.</wsdl:documentation>
+      <wsdl:input name="GetArticleLookupsForArticle" message="tns:GetArticleLookupsForArticleHttpPostIn" />
+      <wsdl:output name="GetArticleLookupsForArticle" message="tns:GetArticleLookupsForArticleHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ArticlesSoap" type="tns:ArticlesSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetArticle">
+      <soap:operation soapAction="http://dsetzer.27seconds.com/ws/GetArticle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchArticles">
+      <soap:operation soapAction="http://dsetzer.27seconds.com/ws/SearchArticles" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RateArticle">
+      <soap:operation soapAction="http://dsetzer.27seconds.com/ws/RateArticle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RateArticle">
+      <soap:operation soapAction="http://dsetzer.27seconds.com/ws/RateArticleWithComments" style="document" />
+      <wsdl:input name="RateArticleWithComments">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="RateArticleWithComments">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetArticleLookups">
+      <soap:operation soapAction="http://dsetzer.27seconds.com/ws/GetArticleLookups" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetArticleLookups">
+      <soap:operation soapAction="http://dsetzer.27seconds.com/ws/GetArticleLookupsForArticle" style="document" />
+      <wsdl:input name="GetArticleLookupsForArticle">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetArticleLookupsForArticle">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ArticlesSoap12" type="tns:ArticlesSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetArticle">
+      <soap12:operation soapAction="http://dsetzer.27seconds.com/ws/GetArticle" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchArticles">
+      <soap12:operation soapAction="http://dsetzer.27seconds.com/ws/SearchArticles" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RateArticle">
+      <soap12:operation soapAction="http://dsetzer.27seconds.com/ws/RateArticle" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RateArticle">
+      <soap12:operation soapAction="http://dsetzer.27seconds.com/ws/RateArticleWithComments" style="document" />
+      <wsdl:input name="RateArticleWithComments">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="RateArticleWithComments">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetArticleLookups">
+      <soap12:operation soapAction="http://dsetzer.27seconds.com/ws/GetArticleLookups" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetArticleLookups">
+      <soap12:operation soapAction="http://dsetzer.27seconds.com/ws/GetArticleLookupsForArticle" style="document" />
+      <wsdl:input name="GetArticleLookupsForArticle">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetArticleLookupsForArticle">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ArticlesHttpGet" type="tns:ArticlesHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="GetArticle">
+      <http:operation location="/GetArticle" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RateArticle">
+      <http:operation location="/RateArticle" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RateArticle">
+      <http:operation location="/RateArticleWithComments" />
+      <wsdl:input name="RateArticleWithComments">
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output name="RateArticleWithComments">
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetArticleLookups">
+      <http:operation location="/GetArticleLookups" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetArticleLookups">
+      <http:operation location="/GetArticleLookupsForArticle" />
+      <wsdl:input name="GetArticleLookupsForArticle">
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output name="GetArticleLookupsForArticle">
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ArticlesHttpPost" type="tns:ArticlesHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="GetArticle">
+      <http:operation location="/GetArticle" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RateArticle">
+      <http:operation location="/RateArticle" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RateArticle">
+      <http:operation location="/RateArticleWithComments" />
+      <wsdl:input name="RateArticleWithComments">
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output name="RateArticleWithComments">
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetArticleLookups">
+      <http:operation location="/GetArticleLookups" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetArticleLookups">
+      <http:operation location="/GetArticleLookupsForArticle" />
+      <wsdl:input name="GetArticleLookupsForArticle">
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output name="GetArticleLookupsForArticle">
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Articles">
+    <wsdl:port name="ArticlesSoap" binding="tns:ArticlesSoap">
+      <soap:address location="http://www.27seconds.com/kb/ws/Articles.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ArticlesSoap12" binding="tns:ArticlesSoap12">
+      <soap12:address location="http://www.27seconds.com/kb/ws/Articles.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ArticlesHttpGet" binding="tns:ArticlesHttpGet">
+      <http:address location="http://www.27seconds.com/kb/ws/Articles.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ArticlesHttpPost" binding="tns:ArticlesHttpPost">
+      <http:address location="http://www.27seconds.com/kb/ws/Articles.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

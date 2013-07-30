@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="urn:dialinfowsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns="http://schemas.xmlsoap.org/wsdl/" targetNamespace="urn:dialinfowsdl" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="urn:dialinfowsdl">
+      <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+      <xsd:import namespace="http://schemas.xmlsoap.org/wsdl/" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="sendPatientRequest">
+    <wsdl:part name="accountid" type="xsd:string" />
+    <wsdl:part name="apikey" type="xsd:string" />
+    <wsdl:part name="appdate" type="xsd:string" />
+    <wsdl:part name="apptime" type="xsd:string" />
+    <wsdl:part name="pname" type="xsd:string" />
+    <wsdl:part name="appphone" type="xsd:string" />
+    <wsdl:part name="appphone2" type="xsd:string" />
+    <wsdl:part name="email" type="xsd:string" />
+    <wsdl:part name="provider" type="xsd:string" />
+    <wsdl:part name="location" type="xsd:string" />
+    <wsdl:part name="reason" type="xsd:string" />
+    <wsdl:part name="other" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="sendPatientResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="getStatusRequest">
+    <wsdl:part name="callid" type="xsd:string" />
+    <wsdl:part name="accountid" type="xsd:string" />
+    <wsdl:part name="apikey" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="getStatusResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="updatePatientRequest">
+    <wsdl:part name="callid" type="xsd:string" />
+    <wsdl:part name="accountid" type="xsd:string" />
+    <wsdl:part name="apikey" type="xsd:string" />
+    <wsdl:part name="status" type="xsd:string" />
+    <wsdl:part name="appphone" type="xsd:string" />
+    <wsdl:part name="appphone2" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="updatePatientResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:portType name="DialInfoPortType">
+    <wsdl:operation name="sendPatient">
+      <documentation>Receives Serialized Data. Returns MD5 CallID On Success. Returns ERROR: XX on fail</documentation>
+      <wsdl:input message="tns:sendPatientRequest" />
+      <wsdl:output message="tns:sendPatientResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getStatus">
+      <documentation>Checks Patient Call Status. Returns String Value ie. Confirmed, Cancelled, Re-Schedule etc.</documentation>
+      <wsdl:input message="tns:getStatusRequest" />
+      <wsdl:output message="tns:getStatusResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="updatePatient">
+      <documentation>Changes patient status to string sent</documentation>
+      <wsdl:input message="tns:updatePatientRequest" />
+      <wsdl:output message="tns:updatePatientResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="DialInfoBinding" type="tns:DialInfoPortType">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc" />
+    <wsdl:operation name="sendPatient">
+      <soap:operation soapAction="urn:dialinfowsdl#sendPatient" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:dialinfowsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:dialinfowsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getStatus">
+      <soap:operation soapAction="urn:dialinfowsdl#getStatus" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:dialinfowsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:dialinfowsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updatePatient">
+      <soap:operation soapAction="urn:dialinfowsdl#updatePatient" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:dialinfowsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:dialinfowsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="DialInfo">
+    <wsdl:port name="DialInfoPort" binding="tns:DialInfoBinding">
+      <soap:address location="https://app.drdial.com:443/tools/services/index.php" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

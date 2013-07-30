@@ -1,0 +1,47 @@
+﻿<phone:PhoneApplicationPage 
+    x:Class="PivotApp4.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:controls="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="768" 
+    d:DataContext="{d:DesignData SampleData/MainViewModelSampleData.xaml}"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait"  Orientation="Portrait"
+    shell:SystemTray.IsVisible="True">
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <!--Pivot Control-->
+        <controls:Pivot Title="MY APPLICATION" Foreground="#FF205DFF" Background="White">
+            <!--Pivot item one-->
+            <controls:PivotItem Header="BMW">
+                <!--Double line list with text wrapping-->
+               
+            </controls:PivotItem>
+ 
+            <!--Pivot item two-->
+            <controls:PivotItem Header="Ferrari">
+                <Grid>
+                    <Image HorizontalAlignment="Left" Height="534" VerticalAlignment="Top" Width="369" Source="/ChildrenFirst Aid.png" Margin="51,63,0,0"/>
+                    <!--Triple line list no text wrapping-->
+                    <TextBlock Text="hello how are you?" Margin="16,466,36,27"></TextBlock>
+                </Grid>
+            </controls:PivotItem>
+            
+            <controls:PivotItem Header="Suzuki">
+                <!--Triple line list no text wrapping-->
+            </controls:PivotItem>
+            <controls:PivotItem Header="Audi">
+                <!--Triple line list no text wrapping-->
+            </controls:PivotItem>
+
+        </controls:Pivot>
+    </Grid>
+ 
+</phone:PhoneApplicationPage>

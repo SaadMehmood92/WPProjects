@@ -1,0 +1,22 @@
+﻿<configuration>
+    <system.serviceModel>
+        <bindings>
+            <basicHttpBinding>
+                <binding name="ArticlesSoap" maxBufferSize="2147483647" maxReceivedMessageSize="2147483647">
+                    <security mode="None" />
+                </binding>
+                <binding name="Service1Soap" maxBufferSize="2147483647" maxReceivedMessageSize="2147483647">
+                    <security mode="None" />
+                </binding>
+            </basicHttpBinding>
+        </bindings>
+        <client>
+            <endpoint address="http://www.27seconds.com/kb/ws/Articles.asmx"
+                binding="basicHttpBinding" bindingConfiguration="ArticlesSoap"
+                contract="ServiceReference1.ArticlesSoap" name="ArticlesSoap" />
+            <endpoint address="http://www.tempe.gov/wx/default.asmx" binding="basicHttpBinding"
+                bindingConfiguration="Service1Soap" contract="ServiceReference2.Service1Soap"
+                name="Service1Soap" />
+        </client>
+    </system.serviceModel>
+</configuration>

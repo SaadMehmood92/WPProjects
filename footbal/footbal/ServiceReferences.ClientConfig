@@ -1,0 +1,29 @@
+﻿<configuration>
+    <system.serviceModel>
+        <bindings>
+            <basicHttpBinding>
+                <binding name="FootballDataSoap" maxBufferSize="2147483647" maxReceivedMessageSize="2147483647">
+                    <security mode="None" />
+                </binding>
+                <binding name="DotnetDailyFactSoap" maxBufferSize="2147483647"
+                    maxReceivedMessageSize="2147483647">
+                    <security mode="None" />
+                </binding>
+                <binding name="ASPFAQsSoap" maxBufferSize="2147483647" maxReceivedMessageSize="2147483647">
+                    <security mode="None" />
+                </binding>
+            </basicHttpBinding>
+        </bindings>
+        <client>
+            <endpoint address="http://www.xmlsoccer.com/FootballData.asmx"
+                binding="basicHttpBinding" bindingConfiguration="FootballDataSoap"
+                contract="football.FootballDataSoap" name="FootballDataSoap" />
+            <endpoint address="http://www.xmlme.com/WSDailyNet.asmx" binding="basicHttpBinding"
+                bindingConfiguration="DotnetDailyFactSoap" contract="ServiceReference1.DotnetDailyFactSoap"
+                name="DotnetDailyFactSoap" />
+            <endpoint address="http://aspnet.4guysfromrolla.com:8001/ws/ASPFAQs.asmx"
+                binding="basicHttpBinding" bindingConfiguration="ASPFAQsSoap"
+                contract="ServiceReference2.ASPFAQsSoap" name="ASPFAQsSoap" />
+        </client>
+    </system.serviceModel>
+</configuration>

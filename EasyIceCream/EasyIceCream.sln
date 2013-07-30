@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Express 2012 for Windows Phone
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyIceCream", "EasyIceCream\EasyIceCream.csproj", "{78C562E4-AE14-494F-B50C-49DE3D34A02B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{78C562E4-AE14-494F-B50C-49DE3D34A02B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{78C562E4-AE14-494F-B50C-49DE3D34A02B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{78C562E4-AE14-494F-B50C-49DE3D34A02B}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{78C562E4-AE14-494F-B50C-49DE3D34A02B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{78C562E4-AE14-494F-B50C-49DE3D34A02B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{78C562E4-AE14-494F-B50C-49DE3D34A02B}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

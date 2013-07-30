@@ -1,0 +1,103 @@
+﻿<phone:PhoneApplicationPage
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:controls="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:telerikPrimitives="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.Primitives" 
+    x:Class="OCW.MainPage" 
+    mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="768"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait"  Orientation="Portrait"
+    shell:SystemTray.IsVisible="True">
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <controls:Pivot Margin="0,99,0,0" Background="#FFB72821" Foreground="White" >
+            <!--Pivot item one-->
+            <controls:PivotItem Header="home" Margin="12,10,12,0"/>
+
+            <!--Pivot item two-->
+            <controls:PivotItem Header="more">
+                <Grid/>
+            </controls:PivotItem>
+
+            <controls:PivotItem Header="links">
+                <Grid>
+                    
+                    <ListBox Background="#FF6E0000" Padding="5,30,5,5" Margin="0,-11,0,-4">
+                        <Border Height="140">
+                            <telerikPrimitives:RadSlideHubTile Title="UC Berkly University" HorizontalAlignment="Left" Margin="14,-6,0,0" VerticalAlignment="Top" Height="126" Width="428" BorderThickness="2" Background="Black">
+                                <telerikPrimitives:RadSlideHubTile.Picture>
+                                    <Image Source="/berkly Unversity.PNG" />
+                                </telerikPrimitives:RadSlideHubTile.Picture>
+                            </telerikPrimitives:RadSlideHubTile>
+                        </Border>
+                        <Border Height="140">
+                            <telerikPrimitives:RadSlideHubTile Title="Machigan University" HorizontalAlignment="Left" Margin="14,-6,0,0" VerticalAlignment="Top" Height="126" Width="428" BorderThickness="2" Background="Black" UpdateInterval="0:0:3">
+                                <telerikPrimitives:RadSlideHubTile.Picture>
+                                    <Image Source="/machigan.PNG" />
+                                </telerikPrimitives:RadSlideHubTile.Picture>
+                            </telerikPrimitives:RadSlideHubTile>
+                        </Border>
+                        <Border Height="140">
+                            <telerikPrimitives:RadSlideHubTile Title="Massanchussat University of IT" HorizontalAlignment="Left" Margin="14,-6,0,0" VerticalAlignment="Top" Height="126" Width="428" BorderThickness="2" Background="Black" UpdateInterval="0:0:3">
+                                <telerikPrimitives:RadSlideHubTile.Picture>
+                                    <Image Source="/MIT.PNG" />
+                                </telerikPrimitives:RadSlideHubTile.Picture>
+                            </telerikPrimitives:RadSlideHubTile>
+                        </Border>
+                        <Border Height="140">
+                            <telerikPrimitives:RadSlideHubTile Title="Massanchussat University of IT" HorizontalAlignment="Left" Margin="14,-6,0,0" VerticalAlignment="Top" Height="126" Width="428" BorderThickness="2" Background="Black" UpdateInterval="0:0:2">
+                                <telerikPrimitives:RadSlideHubTile.Picture>
+                                    <Image Source="/headder.png" />
+                                </telerikPrimitives:RadSlideHubTile.Picture>
+                            </telerikPrimitives:RadSlideHubTile>
+                        </Border>
+                        <Border Height="140">
+                            <telerikPrimitives:RadSlideHubTile Title="Massanchussat University of IT" HorizontalAlignment="Left" Margin="14,-6,0,0" VerticalAlignment="Top" Height="126" Width="428" BorderThickness="2" Background="Black">
+                                <telerikPrimitives:RadSlideHubTile.Picture>
+                                    <Image Source="/headder.png" />
+                                </telerikPrimitives:RadSlideHubTile.Picture>
+                            </telerikPrimitives:RadSlideHubTile>
+                        </Border>
+                        <Border Height="140">
+                            <telerikPrimitives:RadSlideHubTile Title="Massanchussat University of IT" HorizontalAlignment="Left" Margin="14,-6,0,0" VerticalAlignment="Top" Height="126" Width="428" BorderThickness="2" Background="Black">
+                                <telerikPrimitives:RadSlideHubTile.Picture>
+                                    <Image Source="/headder.png" />
+                                </telerikPrimitives:RadSlideHubTile.Picture>
+                            </telerikPrimitives:RadSlideHubTile>
+                        </Border>
+                        <Border Height="140">
+                            <telerikPrimitives:RadSlideHubTile Title="Massanchussat University of IT" HorizontalAlignment="Left" Margin="14,-6,0,0" VerticalAlignment="Top" Height="126" Width="428" BorderThickness="2" Background="Black">
+                                <telerikPrimitives:RadSlideHubTile.Picture>
+                                    <Image Source="/headder.png" />
+                                </telerikPrimitives:RadSlideHubTile.Picture>
+                            </telerikPrimitives:RadSlideHubTile>
+                        </Border>
+                        <Border Height="140">
+                            <telerikPrimitives:RadSlideHubTile Title="Massanchussat University of IT" HorizontalAlignment="Left" Margin="14,-6,0,0" VerticalAlignment="Top" Height="126" Width="428" BorderThickness="2" Background="Black">
+                                <telerikPrimitives:RadSlideHubTile.Picture>
+                                    <Image Source="/headder.png" />
+                                </telerikPrimitives:RadSlideHubTile.Picture>
+                            </telerikPrimitives:RadSlideHubTile>
+                        </Border>
+                        <Border Height="140">
+                            <telerikPrimitives:RadSlideHubTile Title="Massanchussat University of IT" HorizontalAlignment="Left" Margin="14,-6,0,0" VerticalAlignment="Top" Height="126" Width="428" BorderThickness="2" Background="Black">
+                                <telerikPrimitives:RadSlideHubTile.Picture>
+                                    <Image Source="/headder.png" />
+                                </telerikPrimitives:RadSlideHubTile.Picture>
+                            </telerikPrimitives:RadSlideHubTile>
+                        </Border>
+                    </ListBox>
+                </Grid>
+            </controls:PivotItem>
+        </controls:Pivot>
+        <Image HorizontalAlignment="Left" Height="128" VerticalAlignment="Top" Width="480" Source="/headder.png" Stretch="UniformToFill" Margin="0,1,0,0"/>
+    </Grid>
+
+</phone:PhoneApplicationPage>

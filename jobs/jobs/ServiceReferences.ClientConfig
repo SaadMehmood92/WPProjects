@@ -1,0 +1,16 @@
+﻿<configuration>
+    <system.serviceModel>
+        <bindings>
+            <basicHttpBinding>
+                <binding name="JobWSSoap" maxBufferSize="2147483647" maxReceivedMessageSize="2147483647">
+                    <security mode="None" />
+                </binding>
+            </basicHttpBinding>
+        </bindings>
+        <client>
+            <endpoint address="http://www.jobs.ie/JobWS.asmx" binding="basicHttpBinding"
+                bindingConfiguration="JobWSSoap" contract="jobsIE.JobWSSoap"
+                name="JobWSSoap" />
+        </client>
+    </system.serviceModel>
+</configuration>

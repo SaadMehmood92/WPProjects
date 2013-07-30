@@ -1,0 +1,49 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="Tilify.TileDisplay"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d"
+    shell:SystemTray.IsVisible="True">
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="#FF0093DD">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="768"/>
+        </Grid.RowDefinitions>
+
+        <!--TitlePanel contains the name of the application and page title-->
+        <StackPanel Grid.Row="0" Margin="12,17,0,751"/>
+
+        <!--ContentPanel - place additional content here-->
+        <Grid x:Name="ContentPanel" Margin="12,45,12,0">
+            <Rectangle HorizontalAlignment="Left" Height="119" Margin="-13,-44,-9,648" VerticalAlignment="Bottom" Width="478">
+                <Rectangle.Fill>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF1E333E" Offset="1"/>
+                        <GradientStop Color="#FF0093DD" Offset="0.677"/>
+                    </LinearGradientBrush>
+                </Rectangle.Fill>
+            </Rectangle>
+            <TextBlock HorizontalAlignment="Left" Margin="2,-4,0,0" TextWrapping="Wrap" Text="Airplane" VerticalAlignment="Top" FontFamily="Segoe WP Black" FontSize="48" Foreground="White"/>
+            <Image HorizontalAlignment="Left" Height="84" Margin="374,-20,-9,0" VerticalAlignment="Top" Width="91" Source="/plane.png"/>
+            <Rectangle HorizontalAlignment="Left" Height="139" Margin="67,249,0,0" VerticalAlignment="Top" Width="342" Fill="#FF0093DD" Stroke="White" StrokeThickness="5"/>
+            <Rectangle HorizontalAlignment="Left" Height="139" Margin="66,406,0,0" VerticalAlignment="Top" Width="142" Fill="#FF0093DD" Stroke="White" StrokeThickness="5"/>
+            <Rectangle HorizontalAlignment="Left" Height="73" Margin="219,407,0,0" VerticalAlignment="Top" Width="72" Fill="#FF0093DD" Stroke="White" StrokeThickness="5"/>
+            <Image HorizontalAlignment="Left" Height="84" Margin="295,278,0,0" VerticalAlignment="Top" Width="91" Source="/plane.png"/>
+            <Image HorizontalAlignment="Left" Height="84" Margin="98,422,0,0" VerticalAlignment="Top" Width="91" Source="/plane.png"/>
+            <Image HorizontalAlignment="Left" Height="47" Margin="235,420,0,0" VerticalAlignment="Top" Width="48" Source="/plane.png"/>
+            <TextBlock HorizontalAlignment="Left" Margin="83,256,0,0" TextWrapping="Wrap" Text="Airplane Mode" VerticalAlignment="Top" Foreground="White" FontSize="28"/>
+            <TextBlock HorizontalAlignment="Left" Margin="78,513,0,0" TextWrapping="Wrap" Text="Airplane Mode" VerticalAlignment="Top" Foreground="White" FontSize="16"/>
+
+        </Grid>
+    </Grid>
+
+</phone:PhoneApplicationPage>

@@ -1,0 +1,52 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="Eye.ACResult"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d"
+    shell:SystemTray.IsVisible="True">
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="Black">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--TitlePanel contains the name of the application and page title-->
+        <StackPanel Grid.Row="0" Margin="12,17,0,28">
+            <TextBlock Style="{StaticResource PhoneTextNormalStyle}" FontSize="28" Height="33" Foreground="White">
+            	<Run Text="VISION ACUITY"/>
+            	<LineBreak/>
+            	<Run/>
+            </TextBlock>
+            <TextBlock Text="result" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}" FontFamily="Segoe WP Semibold" Height="109" Foreground="White"/>
+        </StackPanel>
+
+        <!--ContentPanel - place additional content here-->
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
+            <CheckBox x:Name="cb" Content="CheckBox" HorizontalAlignment="Left" Margin="42,485,0,0" VerticalAlignment="Top" Foreground="{x:Null}" BorderBrush="{x:Null}"/>
+            <TextBlock x:Name="res" HorizontalAlignment="Left" Margin="74,67,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="211" Width="283" FontSize="76" Foreground="White"/>
+            <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="183" Margin="24,374,0,0" Stroke="Black" VerticalAlignment="Top" Width="407"/>
+            <TextBlock HorizontalAlignment="Left" Margin="27,325,0,0" TextWrapping="Wrap" Text="Review And Suggestions" VerticalAlignment="Top" Width="355" FontWeight="Bold" FontSize="29" Height="49" Foreground="White"/>
+            <TextBlock x:Name="sugg" HorizontalAlignment="Left" Margin="42,391,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="28" FontFamily="Segoe WP Semibold" Height="106" Width="362" Foreground="Black"/>
+
+        </Grid>
+    </Grid>
+    <phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True" Opacity="0.6" BackgroundColor="Black" ForegroundColor="White">
+            <shell:ApplicationBarIconButton Text="share" IconUri="/Assets/AppBar/share.png" Click="ApplicationBarIconButton_Click_1"/>
+
+
+
+
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>
+</phone:PhoneApplicationPage>

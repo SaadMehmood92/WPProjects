@@ -1,0 +1,1024 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="www.mosaicsoftware.co.uk/services/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="www.mosaicsoftware.co.uk/services/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+&lt;p&gt;PostcodeIT_UK web-service provides functions to obtain address(es) from postcodes. 
+To keep the method calls tidy, the service makes use of SoapHeaders. Set up your SoapHeader with your CustomerId, LicenceKey and MachineId. (Customers with individual licences will require to provide the MachineId. Per Click licences and Unlimited use licences can leave the MachineId as an empty string).   
+&lt;/p&gt;
+&lt;p&gt;In the response to a method call you will generally obtain a ResultCode (int) and a ResultDescription (string). 
+A ResultCode of 0 is a success, any other code indicates a failure and the description of the failure will be placed in ResultDescription. Any unhandled exceptions will cause a SoapException to be thown.   
+&lt;/p&gt;         
+&lt;p&gt;The service makes use of the PAF&amp;trade; (Postal Address File). The PAF is &amp;copy; of the Royal Mail and use of this service is governed by their end user licence agreement. All users of the service must obtain the approptiate licences. Please contact sales@mosaicsoftware.co.uk for further information on licencing 
+&lt;/p&gt;
+</wsdl:documentation>
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="www.mosaicsoftware.co.uk/services/">
+      <s:element name="HelloWorld">
+        <s:complexType />
+      </s:element>
+      <s:element name="HelloWorldResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HelloWorldResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetAddressStyle">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="style" type="tns:AddressStyle" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:simpleType name="AddressStyle">
+        <s:restriction base="s:string">
+          <s:enumeration value="DEFAULT" />
+          <s:enumeration value="UPPERCASE" />
+          <s:enumeration value="LOWERCASE" />
+          <s:enumeration value="FIRSTUPPER" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="SetAddressStyleResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetByPostcode">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="postcode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetByPostcodeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetByPostcodeResult" type="tns:PafAddressResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="PafAddressResponse">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ResultCode" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ResultMessage" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Results" type="tns:ArrayOfPafAddress" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfPafAddress">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="PafAddress" nillable="true" type="tns:PafAddress" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="PafAddress">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Postcode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DepartmentName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OrganisationName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="BuildingNumber" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="BuildingName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SubBuildingName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="StreetName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ThoroughfareName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ThoroughfareDescriptor" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PostTown" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DependentLocality" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DoubleDependentLocality" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="AddressKey" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="NumberOfHouseholds" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="CSV" type="tns:PafAddressSummary" />
+          <s:element minOccurs="0" maxOccurs="1" name="Summary2" type="tns:ArrayOfString" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="PafAddressSummary">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="AddressKey" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="SummaryAddress" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="PostcodeITHeader" type="tns:PostcodeITHeader" />
+      <s:complexType name="PostcodeITHeader">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="CustomerId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LicenceKey" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MachineId" type="s:string" />
+        </s:sequence>
+        <s:anyAttribute />
+      </s:complexType>
+      <s:element name="GetByPostcodeSimple">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="postcode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetByPostcodeSimpleResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetByPostcodeSimpleResult" type="tns:SimpleAddressResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="SimpleAddressResponse">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ResultCode" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ResultMessage" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Results" type="tns:ArrayOfSimpleAddress" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfSimpleAddress">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SimpleAddress" nillable="true" type="tns:SimpleAddress" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SimpleAddress">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="AddressKey" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="DepartmentName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OrganisationName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Address1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Address2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Address3" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Address4" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Address5" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PostTown" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Postcode" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetByPostcodeSimpleFiltered">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="postcode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="premises" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetByPostcodeSimpleFilteredResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetByPostcodeSimpleFilteredResult" type="tns:SimpleAddressResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetByPostcodeFiltered">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="postcode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="premises" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetByPostcodeFilteredResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetByPostcodeFilteredResult" type="tns:PafAddressResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetByAddressKey">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="key" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetByAddressKeyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetByAddressKeyResult" type="tns:PafAddressResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetByPostcode_Dataset">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="postcode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetByPostcode_DatasetResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetByPostcode_DatasetResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CleanUp">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="address1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="address2" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="address3" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="address4" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="organisation" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CleanUpResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CleanUpResult" type="tns:PafAddressResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LicenceCount">
+        <s:complexType />
+      </s:element>
+      <s:element name="LicenceCountResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="LicenceCountResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="string" nillable="true" type="s:string" />
+      <s:element name="PafAddressResponse" nillable="true" type="tns:PafAddressResponse" />
+      <s:element name="SimpleAddressResponse" nillable="true" type="tns:SimpleAddressResponse" />
+      <s:element name="DataSet" nillable="true">
+        <s:complexType>
+          <s:sequence>
+            <s:element ref="s:schema" />
+            <s:any />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="int" type="s:int" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="HelloWorldSoapIn">
+    <wsdl:part name="parameters" element="tns:HelloWorld" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldSoapOut">
+    <wsdl:part name="parameters" element="tns:HelloWorldResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetAddressStyleSoapIn">
+    <wsdl:part name="parameters" element="tns:SetAddressStyle" />
+  </wsdl:message>
+  <wsdl:message name="SetAddressStyleSoapOut">
+    <wsdl:part name="parameters" element="tns:SetAddressStyleResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetByPostcodeSoapIn">
+    <wsdl:part name="parameters" element="tns:GetByPostcode" />
+  </wsdl:message>
+  <wsdl:message name="GetByPostcodeSoapOut">
+    <wsdl:part name="parameters" element="tns:GetByPostcodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetByPostcodePostcodeITHeader">
+    <wsdl:part name="PostcodeITHeader" element="tns:PostcodeITHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetByPostcodeSimpleSoapIn">
+    <wsdl:part name="parameters" element="tns:GetByPostcodeSimple" />
+  </wsdl:message>
+  <wsdl:message name="GetByPostcodeSimpleSoapOut">
+    <wsdl:part name="parameters" element="tns:GetByPostcodeSimpleResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetByPostcodeSimplePostcodeITHeader">
+    <wsdl:part name="PostcodeITHeader" element="tns:PostcodeITHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetByPostcodeSimpleFilteredSoapIn">
+    <wsdl:part name="parameters" element="tns:GetByPostcodeSimpleFiltered" />
+  </wsdl:message>
+  <wsdl:message name="GetByPostcodeSimpleFilteredSoapOut">
+    <wsdl:part name="parameters" element="tns:GetByPostcodeSimpleFilteredResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetByPostcodeSimpleFilteredPostcodeITHeader">
+    <wsdl:part name="PostcodeITHeader" element="tns:PostcodeITHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetByPostcodeFilteredSoapIn">
+    <wsdl:part name="parameters" element="tns:GetByPostcodeFiltered" />
+  </wsdl:message>
+  <wsdl:message name="GetByPostcodeFilteredSoapOut">
+    <wsdl:part name="parameters" element="tns:GetByPostcodeFilteredResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetByPostcodeFilteredPostcodeITHeader">
+    <wsdl:part name="PostcodeITHeader" element="tns:PostcodeITHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetByAddressKeySoapIn">
+    <wsdl:part name="parameters" element="tns:GetByAddressKey" />
+  </wsdl:message>
+  <wsdl:message name="GetByAddressKeySoapOut">
+    <wsdl:part name="parameters" element="tns:GetByAddressKeyResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetByAddressKeyPostcodeITHeader">
+    <wsdl:part name="PostcodeITHeader" element="tns:PostcodeITHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetByPostcode_DatasetSoapIn">
+    <wsdl:part name="parameters" element="tns:GetByPostcode_Dataset" />
+  </wsdl:message>
+  <wsdl:message name="GetByPostcode_DatasetSoapOut">
+    <wsdl:part name="parameters" element="tns:GetByPostcode_DatasetResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetByPostcode_DatasetPostcodeITHeader">
+    <wsdl:part name="PostcodeITHeader" element="tns:PostcodeITHeader" />
+  </wsdl:message>
+  <wsdl:message name="CleanUpSoapIn">
+    <wsdl:part name="parameters" element="tns:CleanUp" />
+  </wsdl:message>
+  <wsdl:message name="CleanUpSoapOut">
+    <wsdl:part name="parameters" element="tns:CleanUpResponse" />
+  </wsdl:message>
+  <wsdl:message name="CleanUpPostcodeITHeader">
+    <wsdl:part name="PostcodeITHeader" element="tns:PostcodeITHeader" />
+  </wsdl:message>
+  <wsdl:message name="LicenceCountSoapIn">
+    <wsdl:part name="parameters" element="tns:LicenceCount" />
+  </wsdl:message>
+  <wsdl:message name="LicenceCountSoapOut">
+    <wsdl:part name="parameters" element="tns:LicenceCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="LicenceCountPostcodeITHeader">
+    <wsdl:part name="PostcodeITHeader" element="tns:PostcodeITHeader" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldHttpGetIn" />
+  <wsdl:message name="HelloWorldHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="SetAddressStyleHttpGetIn">
+    <wsdl:part name="style" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SetAddressStyleHttpGetOut" />
+  <wsdl:message name="GetByPostcodeHttpGetIn">
+    <wsdl:part name="postcode" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetByPostcodeHttpGetOut">
+    <wsdl:part name="Body" element="tns:PafAddressResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetByPostcodeSimpleHttpGetIn">
+    <wsdl:part name="postcode" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetByPostcodeSimpleHttpGetOut">
+    <wsdl:part name="Body" element="tns:SimpleAddressResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetByPostcodeSimpleFilteredHttpGetIn">
+    <wsdl:part name="postcode" type="s:string" />
+    <wsdl:part name="premises" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetByPostcodeSimpleFilteredHttpGetOut">
+    <wsdl:part name="Body" element="tns:SimpleAddressResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetByPostcodeFilteredHttpGetIn">
+    <wsdl:part name="postcode" type="s:string" />
+    <wsdl:part name="premises" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetByPostcodeFilteredHttpGetOut">
+    <wsdl:part name="Body" element="tns:PafAddressResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetByAddressKeyHttpGetIn">
+    <wsdl:part name="key" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetByAddressKeyHttpGetOut">
+    <wsdl:part name="Body" element="tns:PafAddressResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetByPostcode_DatasetHttpGetIn">
+    <wsdl:part name="postcode" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetByPostcode_DatasetHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="CleanUpHttpGetIn">
+    <wsdl:part name="address1" type="s:string" />
+    <wsdl:part name="address2" type="s:string" />
+    <wsdl:part name="address3" type="s:string" />
+    <wsdl:part name="address4" type="s:string" />
+    <wsdl:part name="organisation" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CleanUpHttpGetOut">
+    <wsdl:part name="Body" element="tns:PafAddressResponse" />
+  </wsdl:message>
+  <wsdl:message name="LicenceCountHttpGetIn" />
+  <wsdl:message name="LicenceCountHttpGetOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldHttpPostIn" />
+  <wsdl:message name="HelloWorldHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="SetAddressStyleHttpPostIn">
+    <wsdl:part name="style" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SetAddressStyleHttpPostOut" />
+  <wsdl:message name="GetByPostcodeHttpPostIn">
+    <wsdl:part name="postcode" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetByPostcodeHttpPostOut">
+    <wsdl:part name="Body" element="tns:PafAddressResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetByPostcodeSimpleHttpPostIn">
+    <wsdl:part name="postcode" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetByPostcodeSimpleHttpPostOut">
+    <wsdl:part name="Body" element="tns:SimpleAddressResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetByPostcodeSimpleFilteredHttpPostIn">
+    <wsdl:part name="postcode" type="s:string" />
+    <wsdl:part name="premises" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetByPostcodeSimpleFilteredHttpPostOut">
+    <wsdl:part name="Body" element="tns:SimpleAddressResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetByPostcodeFilteredHttpPostIn">
+    <wsdl:part name="postcode" type="s:string" />
+    <wsdl:part name="premises" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetByPostcodeFilteredHttpPostOut">
+    <wsdl:part name="Body" element="tns:PafAddressResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetByAddressKeyHttpPostIn">
+    <wsdl:part name="key" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetByAddressKeyHttpPostOut">
+    <wsdl:part name="Body" element="tns:PafAddressResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetByPostcode_DatasetHttpPostIn">
+    <wsdl:part name="postcode" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetByPostcode_DatasetHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="CleanUpHttpPostIn">
+    <wsdl:part name="address1" type="s:string" />
+    <wsdl:part name="address2" type="s:string" />
+    <wsdl:part name="address3" type="s:string" />
+    <wsdl:part name="address4" type="s:string" />
+    <wsdl:part name="organisation" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CleanUpHttpPostOut">
+    <wsdl:part name="Body" element="tns:PafAddressResponse" />
+  </wsdl:message>
+  <wsdl:message name="LicenceCountHttpPostIn" />
+  <wsdl:message name="LicenceCountHttpPostOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:portType name="PostcodeIT_UKSoap">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Simple method available for testing your connection to the service. The string 'Hello World' is returned.</wsdl:documentation>
+      <wsdl:input message="tns:HelloWorldSoapIn" />
+      <wsdl:output message="tns:HelloWorldSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetAddressStyle">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Allows you to set the styling of the address returned by other Get methods. This only needs to be called once in your session as the setting is remembered for the duration of the Session.</wsdl:documentation>
+      <wsdl:input message="tns:SetAddressStyleSoapIn" />
+      <wsdl:output message="tns:SetAddressStyleSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetByPostcode">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieves a collection of addresses from the database by postcode. Postcode is not case sensitive and so can be upper or lower case. </wsdl:documentation>
+      <wsdl:input message="tns:GetByPostcodeSoapIn" />
+      <wsdl:output message="tns:GetByPostcodeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetByPostcodeSimple">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieves a collection of addresses from the database by postcode. Postcode is not case sensitive and so can be upper or lower case. </wsdl:documentation>
+      <wsdl:input message="tns:GetByPostcodeSimpleSoapIn" />
+      <wsdl:output message="tns:GetByPostcodeSimpleSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetByPostcodeSimpleFiltered">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieves a collection of addresses from the database by postcode and a house number/building name. Postcode is not case sensitive and so can be upper or lower case.</wsdl:documentation>
+      <wsdl:input message="tns:GetByPostcodeSimpleFilteredSoapIn" />
+      <wsdl:output message="tns:GetByPostcodeSimpleFilteredSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetByPostcodeFiltered">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieves a collection of addresses from the database by postcode and a house number/building name. Postcode is not case sensitive and so can be upper or lower case.</wsdl:documentation>
+      <wsdl:input message="tns:GetByPostcodeFilteredSoapIn" />
+      <wsdl:output message="tns:GetByPostcodeFilteredSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetByAddressKey">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieves an address from the database using the AddressKey.</wsdl:documentation>
+      <wsdl:input message="tns:GetByAddressKeySoapIn" />
+      <wsdl:output message="tns:GetByAddressKeySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetByPostcode_Dataset">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieves an address from the database by postcode. Postcode is not case sensitive and so can be upper or lower case. The results are returned in a DataSet.</wsdl:documentation>
+      <wsdl:input message="tns:GetByPostcode_DatasetSoapIn" />
+      <wsdl:output message="tns:GetByPostcode_DatasetSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CleanUp">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Cleanup takes the elements you pass in and matches as many as possible. Use this call to cleans existing data.</wsdl:documentation>
+      <wsdl:input message="tns:CleanUpSoapIn" />
+      <wsdl:output message="tns:CleanUpSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LicenceCount">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Cleanup takes the elements you pass in and matches as many as possible. Use this call to cleans existing data.</wsdl:documentation>
+      <wsdl:input message="tns:LicenceCountSoapIn" />
+      <wsdl:output message="tns:LicenceCountSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="PostcodeIT_UKHttpGet">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Simple method available for testing your connection to the service. The string 'Hello World' is returned.</wsdl:documentation>
+      <wsdl:input message="tns:HelloWorldHttpGetIn" />
+      <wsdl:output message="tns:HelloWorldHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetAddressStyle">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Allows you to set the styling of the address returned by other Get methods. This only needs to be called once in your session as the setting is remembered for the duration of the Session.</wsdl:documentation>
+      <wsdl:input message="tns:SetAddressStyleHttpGetIn" />
+      <wsdl:output message="tns:SetAddressStyleHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetByPostcode">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieves a collection of addresses from the database by postcode. Postcode is not case sensitive and so can be upper or lower case. </wsdl:documentation>
+      <wsdl:input message="tns:GetByPostcodeHttpGetIn" />
+      <wsdl:output message="tns:GetByPostcodeHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetByPostcodeSimple">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieves a collection of addresses from the database by postcode. Postcode is not case sensitive and so can be upper or lower case. </wsdl:documentation>
+      <wsdl:input message="tns:GetByPostcodeSimpleHttpGetIn" />
+      <wsdl:output message="tns:GetByPostcodeSimpleHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetByPostcodeSimpleFiltered">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieves a collection of addresses from the database by postcode and a house number/building name. Postcode is not case sensitive and so can be upper or lower case.</wsdl:documentation>
+      <wsdl:input message="tns:GetByPostcodeSimpleFilteredHttpGetIn" />
+      <wsdl:output message="tns:GetByPostcodeSimpleFilteredHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetByPostcodeFiltered">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieves a collection of addresses from the database by postcode and a house number/building name. Postcode is not case sensitive and so can be upper or lower case.</wsdl:documentation>
+      <wsdl:input message="tns:GetByPostcodeFilteredHttpGetIn" />
+      <wsdl:output message="tns:GetByPostcodeFilteredHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetByAddressKey">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieves an address from the database using the AddressKey.</wsdl:documentation>
+      <wsdl:input message="tns:GetByAddressKeyHttpGetIn" />
+      <wsdl:output message="tns:GetByAddressKeyHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetByPostcode_Dataset">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieves an address from the database by postcode. Postcode is not case sensitive and so can be upper or lower case. The results are returned in a DataSet.</wsdl:documentation>
+      <wsdl:input message="tns:GetByPostcode_DatasetHttpGetIn" />
+      <wsdl:output message="tns:GetByPostcode_DatasetHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CleanUp">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Cleanup takes the elements you pass in and matches as many as possible. Use this call to cleans existing data.</wsdl:documentation>
+      <wsdl:input message="tns:CleanUpHttpGetIn" />
+      <wsdl:output message="tns:CleanUpHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LicenceCount">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Cleanup takes the elements you pass in and matches as many as possible. Use this call to cleans existing data.</wsdl:documentation>
+      <wsdl:input message="tns:LicenceCountHttpGetIn" />
+      <wsdl:output message="tns:LicenceCountHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="PostcodeIT_UKHttpPost">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Simple method available for testing your connection to the service. The string 'Hello World' is returned.</wsdl:documentation>
+      <wsdl:input message="tns:HelloWorldHttpPostIn" />
+      <wsdl:output message="tns:HelloWorldHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetAddressStyle">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Allows you to set the styling of the address returned by other Get methods. This only needs to be called once in your session as the setting is remembered for the duration of the Session.</wsdl:documentation>
+      <wsdl:input message="tns:SetAddressStyleHttpPostIn" />
+      <wsdl:output message="tns:SetAddressStyleHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetByPostcode">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieves a collection of addresses from the database by postcode. Postcode is not case sensitive and so can be upper or lower case. </wsdl:documentation>
+      <wsdl:input message="tns:GetByPostcodeHttpPostIn" />
+      <wsdl:output message="tns:GetByPostcodeHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetByPostcodeSimple">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieves a collection of addresses from the database by postcode. Postcode is not case sensitive and so can be upper or lower case. </wsdl:documentation>
+      <wsdl:input message="tns:GetByPostcodeSimpleHttpPostIn" />
+      <wsdl:output message="tns:GetByPostcodeSimpleHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetByPostcodeSimpleFiltered">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieves a collection of addresses from the database by postcode and a house number/building name. Postcode is not case sensitive and so can be upper or lower case.</wsdl:documentation>
+      <wsdl:input message="tns:GetByPostcodeSimpleFilteredHttpPostIn" />
+      <wsdl:output message="tns:GetByPostcodeSimpleFilteredHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetByPostcodeFiltered">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieves a collection of addresses from the database by postcode and a house number/building name. Postcode is not case sensitive and so can be upper or lower case.</wsdl:documentation>
+      <wsdl:input message="tns:GetByPostcodeFilteredHttpPostIn" />
+      <wsdl:output message="tns:GetByPostcodeFilteredHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetByAddressKey">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieves an address from the database using the AddressKey.</wsdl:documentation>
+      <wsdl:input message="tns:GetByAddressKeyHttpPostIn" />
+      <wsdl:output message="tns:GetByAddressKeyHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetByPostcode_Dataset">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieves an address from the database by postcode. Postcode is not case sensitive and so can be upper or lower case. The results are returned in a DataSet.</wsdl:documentation>
+      <wsdl:input message="tns:GetByPostcode_DatasetHttpPostIn" />
+      <wsdl:output message="tns:GetByPostcode_DatasetHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CleanUp">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Cleanup takes the elements you pass in and matches as many as possible. Use this call to cleans existing data.</wsdl:documentation>
+      <wsdl:input message="tns:CleanUpHttpPostIn" />
+      <wsdl:output message="tns:CleanUpHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LicenceCount">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Cleanup takes the elements you pass in and matches as many as possible. Use this call to cleans existing data.</wsdl:documentation>
+      <wsdl:input message="tns:LicenceCountHttpPostIn" />
+      <wsdl:output message="tns:LicenceCountHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="PostcodeIT_UKSoap" type="tns:PostcodeIT_UKSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap:operation soapAction="www.mosaicsoftware.co.uk/services/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetAddressStyle">
+      <soap:operation soapAction="www.mosaicsoftware.co.uk/services/SetAddressStyle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetByPostcode">
+      <soap:operation soapAction="www.mosaicsoftware.co.uk/services/GetByPostcode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetByPostcodePostcodeITHeader" part="PostcodeITHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetByPostcodeSimple">
+      <soap:operation soapAction="www.mosaicsoftware.co.uk/services/GetByPostcodeSimple" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetByPostcodeSimplePostcodeITHeader" part="PostcodeITHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetByPostcodeSimpleFiltered">
+      <soap:operation soapAction="www.mosaicsoftware.co.uk/services/GetByPostcodeSimpleFiltered" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetByPostcodeSimpleFilteredPostcodeITHeader" part="PostcodeITHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetByPostcodeFiltered">
+      <soap:operation soapAction="www.mosaicsoftware.co.uk/services/GetByPostcodeFiltered" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetByPostcodeFilteredPostcodeITHeader" part="PostcodeITHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetByAddressKey">
+      <soap:operation soapAction="www.mosaicsoftware.co.uk/services/GetByAddressKey" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetByAddressKeyPostcodeITHeader" part="PostcodeITHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetByPostcode_Dataset">
+      <soap:operation soapAction="www.mosaicsoftware.co.uk/services/GetByPostcode_Dataset" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetByPostcode_DatasetPostcodeITHeader" part="PostcodeITHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CleanUp">
+      <soap:operation soapAction="www.mosaicsoftware.co.uk/services/CleanUp" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:CleanUpPostcodeITHeader" part="PostcodeITHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LicenceCount">
+      <soap:operation soapAction="www.mosaicsoftware.co.uk/services/LicenceCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:LicenceCountPostcodeITHeader" part="PostcodeITHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="PostcodeIT_UKSoap12" type="tns:PostcodeIT_UKSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap12:operation soapAction="www.mosaicsoftware.co.uk/services/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetAddressStyle">
+      <soap12:operation soapAction="www.mosaicsoftware.co.uk/services/SetAddressStyle" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetByPostcode">
+      <soap12:operation soapAction="www.mosaicsoftware.co.uk/services/GetByPostcode" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetByPostcodePostcodeITHeader" part="PostcodeITHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetByPostcodeSimple">
+      <soap12:operation soapAction="www.mosaicsoftware.co.uk/services/GetByPostcodeSimple" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetByPostcodeSimplePostcodeITHeader" part="PostcodeITHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetByPostcodeSimpleFiltered">
+      <soap12:operation soapAction="www.mosaicsoftware.co.uk/services/GetByPostcodeSimpleFiltered" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetByPostcodeSimpleFilteredPostcodeITHeader" part="PostcodeITHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetByPostcodeFiltered">
+      <soap12:operation soapAction="www.mosaicsoftware.co.uk/services/GetByPostcodeFiltered" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetByPostcodeFilteredPostcodeITHeader" part="PostcodeITHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetByAddressKey">
+      <soap12:operation soapAction="www.mosaicsoftware.co.uk/services/GetByAddressKey" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetByAddressKeyPostcodeITHeader" part="PostcodeITHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetByPostcode_Dataset">
+      <soap12:operation soapAction="www.mosaicsoftware.co.uk/services/GetByPostcode_Dataset" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetByPostcode_DatasetPostcodeITHeader" part="PostcodeITHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CleanUp">
+      <soap12:operation soapAction="www.mosaicsoftware.co.uk/services/CleanUp" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:CleanUpPostcodeITHeader" part="PostcodeITHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LicenceCount">
+      <soap12:operation soapAction="www.mosaicsoftware.co.uk/services/LicenceCount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:LicenceCountPostcodeITHeader" part="PostcodeITHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="PostcodeIT_UKHttpGet" type="tns:PostcodeIT_UKHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="HelloWorld">
+      <http:operation location="/HelloWorld" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetAddressStyle">
+      <http:operation location="/SetAddressStyle" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="GetByPostcode">
+      <http:operation location="/GetByPostcode" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetByPostcodeSimple">
+      <http:operation location="/GetByPostcodeSimple" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetByPostcodeSimpleFiltered">
+      <http:operation location="/GetByPostcodeSimpleFiltered" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetByPostcodeFiltered">
+      <http:operation location="/GetByPostcodeFiltered" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetByAddressKey">
+      <http:operation location="/GetByAddressKey" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetByPostcode_Dataset">
+      <http:operation location="/GetByPostcode_Dataset" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CleanUp">
+      <http:operation location="/CleanUp" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LicenceCount">
+      <http:operation location="/LicenceCount" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="PostcodeIT_UKHttpPost" type="tns:PostcodeIT_UKHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="HelloWorld">
+      <http:operation location="/HelloWorld" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetAddressStyle">
+      <http:operation location="/SetAddressStyle" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="GetByPostcode">
+      <http:operation location="/GetByPostcode" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetByPostcodeSimple">
+      <http:operation location="/GetByPostcodeSimple" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetByPostcodeSimpleFiltered">
+      <http:operation location="/GetByPostcodeSimpleFiltered" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetByPostcodeFiltered">
+      <http:operation location="/GetByPostcodeFiltered" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetByAddressKey">
+      <http:operation location="/GetByAddressKey" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetByPostcode_Dataset">
+      <http:operation location="/GetByPostcode_Dataset" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CleanUp">
+      <http:operation location="/CleanUp" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LicenceCount">
+      <http:operation location="/LicenceCount" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="PostcodeIT_UK">
+    <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+&lt;p&gt;PostcodeIT_UK web-service provides functions to obtain address(es) from postcodes. 
+To keep the method calls tidy, the service makes use of SoapHeaders. Set up your SoapHeader with your CustomerId, LicenceKey and MachineId. (Customers with individual licences will require to provide the MachineId. Per Click licences and Unlimited use licences can leave the MachineId as an empty string).   
+&lt;/p&gt;
+&lt;p&gt;In the response to a method call you will generally obtain a ResultCode (int) and a ResultDescription (string). 
+A ResultCode of 0 is a success, any other code indicates a failure and the description of the failure will be placed in ResultDescription. Any unhandled exceptions will cause a SoapException to be thown.   
+&lt;/p&gt;         
+&lt;p&gt;The service makes use of the PAF&amp;trade; (Postal Address File). The PAF is &amp;copy; of the Royal Mail and use of this service is governed by their end user licence agreement. All users of the service must obtain the approptiate licences. Please contact sales@mosaicsoftware.co.uk for further information on licencing 
+&lt;/p&gt;
+</wsdl:documentation>
+    <wsdl:port name="PostcodeIT_UKSoap" binding="tns:PostcodeIT_UKSoap">
+      <soap:address location="http://www.mosaicsoftware.co.uk/services/PostcodeIT/PostcodeIT_UK.asmx" />
+    </wsdl:port>
+    <wsdl:port name="PostcodeIT_UKSoap12" binding="tns:PostcodeIT_UKSoap12">
+      <soap12:address location="http://www.mosaicsoftware.co.uk/services/PostcodeIT/PostcodeIT_UK.asmx" />
+    </wsdl:port>
+    <wsdl:port name="PostcodeIT_UKHttpGet" binding="tns:PostcodeIT_UKHttpGet">
+      <http:address location="http://www.mosaicsoftware.co.uk/services/PostcodeIT/PostcodeIT_UK.asmx" />
+    </wsdl:port>
+    <wsdl:port name="PostcodeIT_UKHttpPost" binding="tns:PostcodeIT_UKHttpPost">
+      <http:address location="http://www.mosaicsoftware.co.uk/services/PostcodeIT/PostcodeIT_UK.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

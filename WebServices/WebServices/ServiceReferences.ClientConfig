@@ -1,0 +1,23 @@
+﻿<configuration>
+    <system.serviceModel>
+        <bindings>
+            <basicHttpBinding>
+                <binding name="ASPFAQsSoap" maxBufferSize="2147483647" maxReceivedMessageSize="2147483647">
+                    <security mode="None" />
+                </binding>
+                <binding name="PostcodeIT_UKSoap" maxBufferSize="2147483647"
+                    maxReceivedMessageSize="2147483647">
+                    <security mode="None" />
+                </binding>
+            </basicHttpBinding>
+        </bindings>
+        <client>
+            <endpoint address="http://aspnet.4guysfromrolla.com:8001/ws/ASPFAQs.asmx"
+                binding="basicHttpBinding" bindingConfiguration="ASPFAQsSoap"
+                contract="ServiceReference1.ASPFAQsSoap" name="ASPFAQsSoap" />
+            <endpoint address="http://www.mosaicsoftware.co.uk/services/PostcodeIT/PostcodeIT_UK.asmx"
+                binding="basicHttpBinding" bindingConfiguration="PostcodeIT_UKSoap"
+                contract="ServiceReference2.PostcodeIT_UKSoap" name="PostcodeIT_UKSoap" />
+        </client>
+    </system.serviceModel>
+</configuration>

@@ -1,0 +1,140 @@
+﻿<phone:PhoneApplicationPage 
+    x:Class="Olaround.DetailsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:controls="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="768"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait"  Orientation="Portrait"
+    shell:SystemTray.IsVisible="True">
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <!--Pivot Control-->
+        <controls:Pivot Title="" Margin="0,132,0,0" Name="mainPivot">
+            <!--Pivot item one-->
+
+
+
+            <controls:PivotItem Header="info" Name="myPivotItem">
+                <!--<ListBox>-->
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="103*"/>
+                            <ColumnDefinition Width="353*"/>
+                        </Grid.ColumnDefinitions>
+                    <phone:LongListSelector x:Name="lbFriends" HorizontalAlignment="Left" Height="70.433" Margin="15.498,133.558,0,0" VerticalAlignment="Top" Width="430" Grid.ColumnSpan="2" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto">
+                        <phone:LongListSelector.RenderTransform>
+                            <CompositeTransform Rotation="0.172"/>
+
+                        </phone:LongListSelector.RenderTransform>
+                    </phone:LongListSelector>
+
+                    <Image x:Name="imgCafeImage" HorizontalAlignment="Left" Height="95" VerticalAlignment="Top" Width="103" Source="/logoResturant.png" Grid.ColumnSpan="2" Margin="8,0,0,0"/>
+                    <TextBlock x:Name="tblAddress" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Address" VerticalAlignment="Top" Margin="16,10,0,0" FontSize="27" Grid.Column="1" Height="36" Width="322"/>
+
+                    <TextBlock x:Name="tblCityCountry" HorizontalAlignment="Left" TextWrapping="Wrap" Text="City, Country" VerticalAlignment="Top" Margin="16,44,0,0" FontSize="14" Grid.Column="1" Height="36" Width="322" Foreground="#FF7A7A7A"/>
+
+                    <RichTextBox x:Name="rtb" VerticalScrollBarVisibility="Auto" Margin="5,66,20,407" Grid.Column="1" Foreground="#FF4D54E0">
+                        <Paragraph x:Name="para"/>
+                    </RichTextBox>
+                    <TextBlock HorizontalAlignment="Left" Margin="8,104,0,0" TextWrapping="Wrap" Text="FRIENDS WHO HAVE BEEN THERE" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="448" FontSize="22" Foreground="#FFDACFCF"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="9,204,-1,0" TextWrapping="Wrap" Text="OPERATING HOURS" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="448" FontSize="22" Foreground="#FFDACFCF"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="10,260,-2,0" TextWrapping="Wrap" Text="PHONE NUMBER" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="448" FontSize="22" Foreground="#FFDACFCF"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="8,324,0,0" TextWrapping="Wrap" Text="FACILITIES" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="448" FontSize="22" Foreground="#FFDACFCF"/>
+                    <RichTextBox Name="rtbPhoneNumber" Margin="36,293,16,180" Grid.ColumnSpan="2">
+                        <Paragraph x:Name="parPhone">
+
+                        </Paragraph>
+                    </RichTextBox>
+                    <TextBlock x:Name="tblOperatingTime" HorizontalAlignment="Left" TextWrapping="Wrap" Text="10 Am - 12 Am Everyday" VerticalAlignment="Top" Margin="11,234,0,0" FontSize="18" Height="36" Width="322" Foreground="#FF7A7A7A" Grid.ColumnSpan="2"/>
+                    <Image x:Name="imgNoSmoking" HorizontalAlignment="Left" Height="48" Margin="19,372,0,0" VerticalAlignment="Top" Width="48" RenderTransformOrigin="0.744,0.53" Source="/noSmoking.png" Stretch="Fill"/>
+                    <Image x:Name="imgWiFi" HorizontalAlignment="Left" Height="42" Margin="20,444,0,0" VerticalAlignment="Top" Width="47" RenderTransformOrigin="0.744,0.53" Source="/wifitile.png" Stretch="Fill"/>
+                    <Image x:Name="imgDineIn" HorizontalAlignment="Left" Height="48" Margin="137,372,0,0" VerticalAlignment="Top" Width="45" RenderTransformOrigin="0.744,0.53" Grid.Column="1" Source="/eatingTile.png" Stretch="Fill"/>
+                    <Image x:Name="imgDelivery" HorizontalAlignment="Left" Height="41" Margin="137,445,0,0" VerticalAlignment="Top" Width="45" RenderTransformOrigin="0.744,0.53" Grid.Column="1" Source="/homeDelivery.png" Stretch="Fill"/>
+                    <TextBlock Name="tblNoSmoin" HorizontalAlignment="Left" Margin="74,379,0,0" TextWrapping="Wrap" Text="no- smoking" VerticalAlignment="Top" Grid.ColumnSpan="2" FontSize="22"/>
+                    <TextBlock Name="tblWiFi" HorizontalAlignment="Left" Margin="74,451,0,0" TextWrapping="Wrap" Text="wi-fi" VerticalAlignment="Top" Grid.ColumnSpan="2" FontSize="22"/>
+                    <TextBlock x:Name="tblDineIn" HorizontalAlignment="Left" Margin="190,379,0,0" TextWrapping="Wrap" Text="dine-in" VerticalAlignment="Top" Grid.Column="1" FontSize="22"/>
+                    <TextBlock x:Name="tblHomeDelivery" HorizontalAlignment="Left" Margin="190,451,0,0" TextWrapping="Wrap" Text="home delivery" VerticalAlignment="Top" Grid.Column="1" FontSize="22"/>
+                    <Image HorizontalAlignment="Left" Height="33" Margin="11,289,0,0" VerticalAlignment="Top" Width="25"/>
+                </Grid>
+                <!--</ListBox>-->
+            </controls:PivotItem>
+         
+            <controls:PivotItem Header="menu">
+              
+            </controls:PivotItem>
+            <controls:PivotItem Header="deals">
+                <ListBox>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="103*"/>
+                            <ColumnDefinition Width="353*"/>
+                        </Grid.ColumnDefinitions>
+                        <Image x:Name="imgDealIcon" HorizontalAlignment="Left" Height="90" VerticalAlignment="Top" Width="103" Margin="0,16,0,0" Source="/ICONURI.png"/>
+                        <TextBlock x:Name="tblDealOffer" HorizontalAlignment="Left" TextWrapping="Wrap" Text="SUPER DEAL - GET 50% OFF" VerticalAlignment="Top" Margin="16,10,0,0" FontSize="24" Grid.Column="1" Height="36" Width="322"/>
+                        <TextBlock x:Name="tblDealDisc" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Only Available in super deal  menu please check the mentu th avail it." VerticalAlignment="Top" Margin="16,42,0,0" FontSize="17" Grid.Column="1" Height="45" Width="322" Foreground="#FF7A7A7A"/>
+                        <TextBlock x:Name="tblDealValidity" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Valid Uptil 25th June" Margin="16,89,0,0" FontSize="16" Grid.Column="1" Width="322" Foreground="White"/>
+                    </Grid>
+
+                </ListBox>
+            </controls:PivotItem>
+
+            <controls:PivotItem Header="kicks">
+                <ListBox Margin="10,10,-10,-10" FontWeight="Bold">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="103*"/>
+                            <ColumnDefinition Width="353*"/>
+                        </Grid.ColumnDefinitions>
+                        <Image x:Name="KResturantImage" HorizontalAlignment="Left" Height="90" VerticalAlignment="Top" Width="103" Margin="0,16,0,0" Source="/ICONURI.png"/>
+                        <TextBlock x:Name="tblDeal" HorizontalAlignment="Left" TextWrapping="Wrap" Text="SUPER DEAL - GET 50% OFF" VerticalAlignment="Top" Margin="16,10,0,0" FontSize="24" Grid.Column="1" Height="36" Width="322" FontWeight="Normal"/>
+                        <TextBlock x:Name="tblDealAvailability" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Only Available in super deal  menu please check the mentu th avail it." VerticalAlignment="Top" Margin="16,42,0,0" FontSize="17" Grid.Column="1" Height="45" Width="322" Foreground="#FF7A7A7A"/>
+                        <Rectangle Fill="#FF2692FF" HorizontalAlignment="Left" Height="100" Margin="-7,6,0,0" Stroke="Black" VerticalAlignment="Top" Width="100"/>
+                        <TextBlock x:Name="tblOffferCount" HorizontalAlignment="Left" Margin="31,22,0,0" TextWrapping="Wrap" Text="3" VerticalAlignment="Top" Height="65" Width="46" FontSize="50" FontWeight="Bold" Foreground="White"/>
+
+                        <RichTextBox Name="rtb1" VerticalScrollBarVisibility="Auto" Margin="5,83,0,390" Grid.Column="1" Foreground="#FF4D54E0">
+                            <Paragraph x:Name="para1">
+
+                            </Paragraph>
+                        </RichTextBox>
+                    </Grid>
+
+                </ListBox>
+            </controls:PivotItem>  
+
+
+
+        </controls:Pivot>
+        <Image x:Name="ResturantImage" HorizontalAlignment="Left" Height="157" VerticalAlignment="Top" Width="480"/>
+        <TextBlock Name="tblCafeName" TextWrapping="Wrap" Text="GLORIA JEAN'S COFFEES" RenderTransformOrigin="0.665,0.656" Margin="6,115,159,599" FontSize="26"/>
+    </Grid>
+    <phone:PhoneApplicationPage.ApplicationBar >
+        <shell:ApplicationBar IsVisible="False" IsMenuEnabled="True" Opacity="0.2">
+
+            <shell:ApplicationBarIconButton 
+                IconUri="/Images/appbar.add.rest.png" 
+                Text="button" 
+                x:Name="button1" 
+                />
+            <shell:ApplicationBarIconButton 
+                IconUri="/Images/appbar.add.rest.png" 
+                Text="button" 
+                x:Name="Button2" 
+              />
+            <shell:ApplicationBarIconButton 
+                IconUri="/Images/appbar.add.rest.png" 
+                Text="button" 
+                x:Name="Button3" 
+                />
+
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>
+</phone:PhoneApplicationPage>

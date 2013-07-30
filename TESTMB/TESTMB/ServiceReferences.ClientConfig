@@ -1,0 +1,23 @@
+﻿<configuration>
+    <system.serviceModel>
+        <bindings>
+            <basicHttpBinding>
+                <binding name="DialInfoBinding" maxBufferSize="2147483647" maxReceivedMessageSize="2147483647">
+                    <security mode="Transport" />
+                </binding>
+                <binding name="SpellAidSoapBinding" maxBufferSize="2147483647"
+                    maxReceivedMessageSize="2147483647">
+                    <security mode="None" />
+                </binding>
+            </basicHttpBinding>
+        </bindings>
+        <client>
+            <endpoint address="https://app.drdial.com:443/tools/services/index.php"
+                binding="basicHttpBinding" bindingConfiguration="DialInfoBinding"
+                contract="ServiceReference1.DialInfoPortType" name="DialInfoPort" />
+            <endpoint address="http://chemspell.nlm.nih.gov/axis/SpellAid.jws"
+                binding="basicHttpBinding" bindingConfiguration="SpellAidSoapBinding"
+                contract="ServiceReference2.SpellAid" name="SpellAid" />
+        </client>
+    </system.serviceModel>
+</configuration>

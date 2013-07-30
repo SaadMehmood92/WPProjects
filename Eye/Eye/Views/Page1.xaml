@@ -1,0 +1,40 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="Eye.Page1"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d"
+    shell:SystemTray.IsVisible="True">
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="Black">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--TitlePanel contains the name of the application and page title-->
+        <StackPanel Grid.Row="0" Margin="12,17,0,28">
+            <TextBlock Text="NEAR VISION CHECK" Style="{StaticResource PhoneTextNormalStyle}" FontSize="28" Foreground="White"/>
+            <TextBlock Text="black room" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}" FontWeight="Bold" FontFamily="Segoe WP Semibold" Foreground="White"/>
+        </StackPanel>
+
+        <!--ContentPanel - place additional content here-->
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,28,12,-28">
+            <Rectangle Fill="White" HorizontalAlignment="Left" Height="341" Margin="10,34,0,0" Stroke="Black" VerticalAlignment="Top" Width="430"/>
+
+            <Image x:Name="image1" HorizontalAlignment="Left" Height="213" Margin="35,97,0,0" VerticalAlignment="Top" Width="391"/>
+            <Button Content="Next" HorizontalAlignment="Left" Margin="16,409,0,0" VerticalAlignment="Top" Click="Button_Click_1" Width="213" FontWeight="Bold" FontSize="38" Background="Black" Foreground="White" BorderBrush="White"/>
+            <Button Content="Stop" HorizontalAlignment="Left" Margin="234,409,0,0" VerticalAlignment="Top" Width="212" Click="Button_Click_2" FontWeight="Bold" FontSize="38" Background="Black" Foreground="White" BorderBrush="White"/>
+
+        </Grid>
+    </Grid>
+	
+</phone:PhoneApplicationPage>

@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Deployment xmlns="http://schemas.microsoft.com/windowsphone/2009/deployment" AppPlatformVersion="7.1">
+  <App xmlns="" ProductID="{b32041a1-c2aa-47bb-9c3a-ed2f3098ab7f}" Title="My Counter" RuntimeType="Silverlight" Version="1.0.0.0" Genre="apps.normal" Author="Saad Mahmood" Description="Count your things now" Publisher="MYCOUNTER">
+    <IconPath IsRelative="true" IsResource="false">logo.png</IconPath>
+    <Capabilities>
+      <Capability Name="ID_CAP_NETWORKING" />
+    </Capabilities>
+    <Tasks>
+      <DefaultTask Name="_default" NavigationPage="MainPage.xaml" />
+    </Tasks>
+    <Tokens>
+      <PrimaryToken TokenID="MYCOUNTERToken" TaskName="_default">
+        <TemplateType5>
+          <BackgroundImageURI IsRelative="true" IsResource="false">lo.png</BackgroundImageURI>
+          <Count>0</Count>
+          <Title>MYCOUNTER</Title>
+        </TemplateType5>
+      </PrimaryToken>
+    </Tokens>
+  </App>
+</Deployment>

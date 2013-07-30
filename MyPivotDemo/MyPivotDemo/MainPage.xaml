@@ -1,0 +1,47 @@
+﻿<phone:PhoneApplicationPage 
+    x:Class="MyPivotDemo.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:controls="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="768" 
+    d:DataContext="{d:DesignData SampleData/MainViewModelSampleData.xaml}"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait"  Orientation="Portrait"
+    shell:SystemTray.IsVisible="True">
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <!--Pivot Control-->
+        <controls:Pivot x:Name="pivot1" Title="MY APPLICATION" SelectionChanged="changed_selection">
+            <!--Pivot item one-->
+            <controls:PivotItem x:Name="pivotItem1"  Header="first" >
+            </controls:PivotItem>
+ 
+            <controls:PivotItem Header="second" x:Name="pivotItem2" > 
+             </controls:PivotItem>
+
+            <controls:PivotItem Header="third">
+            </controls:PivotItem>
+
+            <controls:PivotItem Header="fourth">
+            </controls:PivotItem>
+        </controls:Pivot>
+    </Grid>
+
+    <phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar x:Name="myappbar" IsMenuEnabled="False" Opacity="0.5">
+            <shell:ApplicationBarIconButton IconUri="/icons/appbar.questionmark.rest.png" Text="help " />
+            <shell:ApplicationBarIconButton IconUri="/icons/appbar.favs.rest.png" Text="review" />
+            <shell:ApplicationBar.MenuItems>
+                <shell:ApplicationBarMenuItem Text="help" />
+                <shell:ApplicationBarMenuItem Text="review" />
+            </shell:ApplicationBar.MenuItems>
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>
+</phone:PhoneApplicationPage>

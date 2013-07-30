@@ -1,0 +1,196 @@
+﻿<phone:PhoneApplicationPage 
+    x:Class="Greete_Bott.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:controls="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls"
+    xmlns:telerikPrimitives="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.Primitives"
+    xmlns:system="clr-namespace:System;assembly=mscorlib"
+   
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="800" 
+    d:DataContext="{d:DesignData SampleData/MainViewModelSampleData.xaml}"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait"  Orientation="Portrait"
+    shell:SystemTray.IsVisible="False">
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+ 
+        <!--Panorama control-->
+        <controls:Panorama Title="greeter bott" HorizontalAlignment="Left" Width="480">
+            <controls:Panorama.Background>
+                <ImageBrush ImageSource="/Background.png"/>
+            </controls:Panorama.Background>
+ 
+            <!--Panorama item one-->
+            <controls:PanoramaItem Header="profile" FontWeight="Bold" FontFamily="Segoe WP Black">
+                <Grid Margin="0,-39,0,0">
+                    <Rectangle HorizontalAlignment="Left" Height="188" Margin="2,31,0,0" VerticalAlignment="Top" Width="418" StrokeThickness="3" RenderTransformOrigin="0.426,0.552" Opacity="0.6" Fill="Black"/>
+
+                    <Rectangle Fill="#FFB8193B" HorizontalAlignment="Left" Height="143" Margin="12,57,0,0" Stroke="White" VerticalAlignment="Top" Width="150" StrokeThickness="3"/>
+                    <TextBlock x:Name="name" HorizontalAlignment="Left" Margin="176,43,-24,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="50" Width="268" FontFamily="Segoe WP Black" FontWeight="Bold" Height="130" Foreground="#FFFFC80D">
+                    	<Run Text="AMAT"/>
+                    	<LineBreak/>
+                    	<Run FontSize="40" Text="UL-JAMEEL">
+                    		<Run.Foreground>
+                    			<SolidColorBrush Color="#FFF7F5F4">
+                    				<SolidColorBrush.RelativeTransform>
+                    					<MatrixTransform Matrix="Identity"/>
+                    				</SolidColorBrush.RelativeTransform>
+                    				<SolidColorBrush.Transform>
+                    					<MatrixTransform Matrix="Identity"/>
+                    				</SolidColorBrush.Transform>
+                    			</SolidColorBrush>
+                    		</Run.Foreground>
+                    	</Run>
+                    </TextBlock>
+                    <Rectangle HorizontalAlignment="Left" Height="218" Margin="0,248,0,0" VerticalAlignment="Top" Width="420" StrokeThickness="3" RenderTransformOrigin="0.426,0.552" Opacity="0.6" Fill="Black"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="25,265,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="45">
+                    	<Run Text="4,695 "/>
+                    	<Run Text="wishes">
+                    		<Run.Foreground>
+                    			<SolidColorBrush Color="#FFFFC80D">
+                    				<SolidColorBrush.RelativeTransform>
+                    					<MatrixTransform Matrix="Identity"/>
+                    				</SolidColorBrush.RelativeTransform>
+                    				<SolidColorBrush.Transform>
+                    					<MatrixTransform Matrix="Identity"/>
+                    				</SolidColorBrush.Transform>
+                    			</SolidColorBrush>
+                    		</Run.Foreground>
+                    	</Run>
+                    </TextBlock>
+                    <TextBlock HorizontalAlignment="Left" Margin="25,325,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="45">
+                    	<Run Text="45 "/>
+                    	<Run Text="templates">
+                    		<Run.Foreground>
+                    			<SolidColorBrush Color="#FFFFC80D">
+                    				<SolidColorBrush.RelativeTransform>
+                    					<MatrixTransform Matrix="Identity"/>
+                    				</SolidColorBrush.RelativeTransform>
+                    				<SolidColorBrush.Transform>
+                    					<MatrixTransform Matrix="Identity"/>
+                    				</SolidColorBrush.Transform>
+                    			</SolidColorBrush>
+                    		</Run.Foreground>
+                    	</Run>
+                    </TextBlock>
+                    <TextBlock HorizontalAlignment="Left" Margin="26,387,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="45" Width="308">
+                    	<Run Text="3,698 "/>
+                    	<Run Text="shares">
+                    		<Run.Foreground>
+                    			<SolidColorBrush Color="#FFFFC80D">
+                    				<SolidColorBrush.RelativeTransform>
+                    					<MatrixTransform Matrix="Identity"/>
+                    				</SolidColorBrush.RelativeTransform>
+                    				<SolidColorBrush.Transform>
+                    					<MatrixTransform Matrix="Identity"/>
+                    				</SolidColorBrush.Transform>
+                    			</SolidColorBrush>
+                    		</Run.Foreground>
+                    	</Run>
+                    </TextBlock>
+                    <TextBlock HorizontalAlignment="Left" Margin="179,171,0,0" TextWrapping="Wrap" Text="beginner greeter" VerticalAlignment="Top" Foreground="#FFA6A6A6" FontSize="22"/>
+                    <Button Content="Button" HorizontalAlignment="Left" Margin="145,455,0,0" VerticalAlignment="Top" Click="Button_Click"/>
+
+                </Grid>
+            </controls:PanoramaItem>
+ 
+            <!--Panorama item two-->
+            <!--Use 'Orientation="Horizontal"' to enable a panel that lays out horizontally-->
+            <controls:PanoramaItem Header="catagories" FontWeight="Bold">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="23*"/>
+                        <ColumnDefinition Width="19*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <telerikPrimitives:RadSlideHubTile Tap="RadSlideHubTile_Tap_1" Width="210" Height="210" Title="Birthday" Margin="10,10,10,278" Background="#FFC89D09">
+                        <telerikPrimitives:RadSlideHubTile.Picture>
+                            <Image Source="Images\HubTileImage.png"
+                                Stretch="UniformToFill"/>
+                        </telerikPrimitives:RadSlideHubTile.Picture>
+                    </telerikPrimitives:RadSlideHubTile>
+                    <telerikPrimitives:RadCustomHubTile Tap="RadCustomHubTile_Tap_1" Width="99" Height="99" Margin="227,9,94,390" Background="#FFD60030" Grid.ColumnSpan="2">
+                        <telerikPrimitives:RadCustomHubTile.FrontContent>
+                            <Image Source="background.png"
+                                Stretch="UniformToFill"/>
+                        </telerikPrimitives:RadCustomHubTile.FrontContent>
+                        </telerikPrimitives:RadCustomHubTile>
+                    <telerikPrimitives:RadCustomHubTile Width="99" Height="99" Margin="107,10,-16,389" Background="#FFB8193B" Grid.Column="1">
+                        <telerikPrimitives:RadCustomHubTile.FrontContent>
+                            <Image Source="background.png"
+                                Stretch="UniformToFill"/>
+                        </telerikPrimitives:RadCustomHubTile.FrontContent>
+                    </telerikPrimitives:RadCustomHubTile>
+                    <telerikPrimitives:RadCustomHubTile Width="99" Height="99" Margin="107,117,-16,282" Grid.Column="1">
+                        <telerikPrimitives:RadCustomHubTile.FrontContent>
+                            <Image Source="background.png"
+                                Stretch="UniformToFill"/>
+                        </telerikPrimitives:RadCustomHubTile.FrontContent>
+                    </telerikPrimitives:RadCustomHubTile>
+                    <telerikPrimitives:RadCustomHubTile Width="99" Height="99" Margin="227,118,94,281" Grid.ColumnSpan="2">
+                        <telerikPrimitives:RadCustomHubTile.FrontContent>
+                            <Image Source="background.png"
+                                Stretch="UniformToFill"/>
+                        </telerikPrimitives:RadCustomHubTile.FrontContent>
+                    </telerikPrimitives:RadCustomHubTile>
+                    <telerikPrimitives:RadPictureRotatorHubTile Width="432" Height="210" Margin="8,232,-20,56" Grid.ColumnSpan="2" >
+                        <system:String>Images\HubTileImage.png</system:String>
+                        <system:String>background.png</system:String>
+                    </telerikPrimitives:RadPictureRotatorHubTile>
+
+                </Grid>
+
+            </controls:PanoramaItem>
+
+            <controls:PanoramaItem Header="templates" FontWeight="Bold">
+            </controls:PanoramaItem>
+
+            <controls:PanoramaItem Header="recent" FontWeight="Bold">
+                
+                <Grid>
+              
+                       
+                            <telerikPrimitives:RadPictureRotatorHubTile Margin="6,-2,4,364" Width="410" Height="136" Background="#FF00ACFF">
+                                <system:String>Images\background.png</system:String>
+                                <system:String>Images\background.png</system:String>
+                            </telerikPrimitives:RadPictureRotatorHubTile>
+
+
+               
+
+
+                    <telerikPrimitives:RadPictureRotatorHubTile Margin="5,287,5,75" Width="410" Height="136">
+                        <system:String>Images\background.png</system:String>
+                        <system:String>Images\background.png</system:String>
+                    </telerikPrimitives:RadPictureRotatorHubTile>
+
+
+                    <telerikPrimitives:RadPictureRotatorHubTile Margin="5,143,5,219" Width="410" Height="136">
+                        <system:String>Images\background.png</system:String>
+                        <system:String>Images\background.png</system:String>
+                    </telerikPrimitives:RadPictureRotatorHubTile>
+
+
+                </Grid>
+            
+            
+                    </controls:PanoramaItem>
+
+
+            <controls:PanoramaItem Header="find online" FontWeight="Bold">
+                <Grid>
+                    
+                </Grid>
+            </controls:PanoramaItem>
+            
+            
+        </controls:Panorama>
+    </Grid>
+</phone:PhoneApplicationPage>

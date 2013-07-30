@@ -1,0 +1,54 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="Olaround.Scanner"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d"
+    shell:SystemTray.IsVisible="True">
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--TitlePanel contains the name of the application and page title-->
+        <StackPanel Grid.Row="0" Margin="12,17,0,28">
+            <TextBlock Text="SCANNER" Style="{StaticResource PhoneTextNormalStyle}" FontSize="24"/>
+        </StackPanel>
+
+        <!--ContentPanel - place additional content here-->
+        <Grid x:Name="ContentPanel" Margin="12,54,12,0" Grid.RowSpan="2">
+            
+<TextBlock Name="tblScannerDiscription" HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FFC1BEBE" FontSize="22">
+            	<Run Text="Look for the QR Code and place it in the center of the scanner below. Your phone will vibrate when the code is scanned successfully. "/>
+            	<Run Text="Learn more." TextDecorations="Underline">
+            		<Run.Foreground>
+            			<SolidColorBrush Color="White">
+            				<SolidColorBrush.RelativeTransform>
+            					<MatrixTransform Matrix="Identity"/>
+            				</SolidColorBrush.RelativeTransform>
+            				<SolidColorBrush.Transform>
+            					<MatrixTransform Matrix="Identity"/>
+            				</SolidColorBrush.Transform>
+            			</SolidColorBrush>
+            		</Run.Foreground>
+            	</Run>
+            </TextBlock>
+            <ToggleButton Name="tgblFacebool" Margin="292,590,38,58" IsChecked="true"/>
+            <Border Name="brdrScanner" BorderBrush="#FF0097FF" BorderThickness="6" HorizontalAlignment="Left" Height="388" VerticalAlignment="Top" Width="380" Margin="38,138,0,0"/>
+            <TextBlock Name="tblOn" HorizontalAlignment="Left" Margin="38,590,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" FontSize="40" Text="On" Height="49" Width="67"/>
+            <TextBlock Name="tblShareOnFacebook" HorizontalAlignment="Left" Margin="36,551,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FF9E9C9C" FontSize="28" Text="Share on Facebook" Height="49" Width="355"/>
+
+        </Grid>
+    </Grid>
+
+</phone:PhoneApplicationPage>
